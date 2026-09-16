@@ -59,48 +59,45 @@ export const PhoneMockup: React.FC<PhoneMockupProps> = ({ screenId, className = 
 
         {/* Screen Bezel and Inner Display */}
         <div className="relative w-full h-full bg-[#070B12] rounded-[38px] overflow-hidden border border-black flex flex-col justify-between">
-          {/* Dynamic Island / Speaker Notch */}
-          <div className="absolute top-2 left-1/2 -translate-x-1/2 z-30 flex items-center justify-between px-3 w-28 h-6 bg-black rounded-full shadow-md">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#131B2B] border border-white/10 flex items-center justify-center">
-              <div className="w-1 h-1 rounded-full bg-brand-cyan/70"></div>
-            </div>
-            <div className="w-2 h-2 rounded-full bg-[#0F172A] border border-white/5"></div>
-          </div>
-
-          {/* Time & Battery Status Header */}
-          <div className="relative z-20 flex items-center justify-between px-6 pt-3 pb-1 text-[10px] font-semibold text-slate-300">
-            <span>04:28</span>
-            <div className="flex items-center gap-1.5 text-[9px]">
-              <span>5G</span>
-              <div className="w-4 h-2 rounded-sm border border-slate-400 p-0.5 flex items-center">
-                <div className="w-full h-full bg-brand-green rounded-2xs"></div>
+          {!imageError ? (
+            <img
+              src={imageSrc}
+              alt={`WayFer Screen ${screenId}`}
+              className="w-full h-full object-cover object-top select-none"
+              onError={() => setImageError(true)}
+            />
+          ) : (
+            <>
+              {/* Dynamic Island / Speaker Notch */}
+              <div className="absolute top-2 left-1/2 -translate-x-1/2 z-30 flex items-center justify-between px-3 w-28 h-6 bg-black rounded-full shadow-md">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#131B2B] border border-white/10 flex items-center justify-center">
+                  <div className="w-1 h-1 rounded-full bg-brand-cyan/70"></div>
+                </div>
+                <div className="w-2 h-2 rounded-full bg-[#0F172A] border border-white/5"></div>
               </div>
-            </div>
-          </div>
 
-          {/* Screen Content Container */}
-          <div className="relative flex-1 w-full overflow-hidden">
-            {!imageError ? (
-              <img
-                src={imageSrc}
-                alt={`WayFer Screen ${screenId}`}
-                className="w-full h-full object-cover"
-                onError={() => setImageError(true)}
-              />
-            ) : null}
+              {/* Time & Battery Status Header */}
+              <div className="relative z-20 flex items-center justify-between px-6 pt-3 pb-1 text-[10px] font-semibold text-slate-300">
+                <span>04:28</span>
+                <div className="flex items-center gap-1.5 text-[9px]">
+                  <span>5G</span>
+                  <div className="w-4 h-2 rounded-sm border border-slate-400 p-0.5 flex items-center">
+                    <div className="w-full h-full bg-brand-green rounded-2xs"></div>
+                  </div>
+                </div>
+              </div>
 
-            {/* If image errored or not yet dropped in, render the vector screen */}
-            {imageError && (
-              <div className="w-full h-full">
+              {/* Screen Content Container */}
+              <div className="relative flex-1 w-full overflow-hidden">
                 {renderScreen()}
               </div>
-            )}
-          </div>
 
-          {/* Bottom Home Indicator Line */}
-          <div className="relative z-20 pb-2 pt-1 flex justify-center bg-[#070B12]">
-            <div className="w-28 h-1 bg-white/30 rounded-full"></div>
-          </div>
+              {/* Bottom Home Indicator Line */}
+              <div className="relative z-20 pb-2 pt-1 flex justify-center bg-[#070B12]">
+                <div className="w-28 h-1 bg-white/30 rounded-full"></div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
