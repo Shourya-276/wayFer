@@ -9,7 +9,6 @@ import { HowItWorks } from './components/HowItWorks';
 import { ProductShowcase } from './components/ProductShowcase';
 import { LiveMatchSimulator } from './components/LiveMatchSimulator';
 import { ProductDifference } from './components/ProductDifference';
-import { HumanConnection } from './components/HumanConnection';
 import { SharedEconomics } from './components/SharedEconomics';
 import { WhoIsWayferFor } from './components/WhoIsWayferFor';
 import { WaitlistSection } from './components/WaitlistSection';
@@ -76,10 +75,7 @@ export const App: React.FC = () => {
         {/* 9. The Product Difference */}
         <ProductDifference />
 
-        {/* 10. Human Connection */}
-        <HumanConnection />
-
-        {/* 11. Shared Ride Economics */}
+        {/* 10. Shared Ride Economics */}
         <SharedEconomics />
 
         {/* 12. Who Is WayFer For? */}
