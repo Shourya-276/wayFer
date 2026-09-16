@@ -21,17 +21,16 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', showTex
 
   return (
     <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* Official WayFer Map Pin Logo */}
+      {/* Official WayFer Logo in Monochrome */}
       <div className="relative flex items-center justify-center group shrink-0">
-        {/* Subtle Ambient Emerald & Cyan Backglow */}
-        <div className="absolute inset-0 bg-brand-green/25 rounded-full blur-md opacity-60 group-hover:opacity-100 transition-opacity"></div>
+        {/* Sleek Monochrome Backglow */}
+        <div className="absolute inset-0 bg-white/20 rounded-full blur-md opacity-40 group-hover:opacity-80 transition-opacity"></div>
         
         <img
           src="/wayfer-logo-trimmed.png"
           alt="WayFer Logo"
-          className={`relative z-10 ${imageSizes[size]} object-contain drop-shadow-[0_4px_12px_rgba(0,240,118,0.25)] transition-transform duration-300 group-hover:scale-105`}
+          className={`relative z-10 ${imageSizes[size]} object-contain filter grayscale contrast-125 drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)] transition-transform duration-300 group-hover:scale-105`}
           onError={(e) => {
-            // Fallback to jpeg if needed
             (e.target as HTMLImageElement).src = '/wayfer-logo.jpeg';
           }}
         />
@@ -40,7 +39,7 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', showTex
       {showText && (
         <div className="flex items-center tracking-tight">
           <span className={`font-black tracking-tight text-white ${textSizes[size]}`}>
-            Way<span className="text-brand-green">Fer</span>
+            Way<span className="text-neutral-400">Fer</span>
           </span>
         </div>
       )}

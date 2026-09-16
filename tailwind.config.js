@@ -8,19 +8,19 @@ export default {
     extend: {
       colors: {
         brand: {
-          green: "#00F076",
-          emerald: "#10B981",
-          darkgreen: "#055030",
-          cyan: "#22D3EE",
-          neon: "#38EF7D",
+          green: "#FFFFFF",
+          emerald: "#E5E5E5",
+          darkgreen: "#1C1C1C",
+          cyan: "#D4D4D4",
+          neon: "#F5F5F5",
         },
         dark: {
-          950: "#030507",
-          900: "#06090E",
-          850: "#0A0E17",
-          800: "#0F1522",
-          700: "#161E2E",
-          600: "#222D42",
+          950: "#000000",
+          900: "#050505",
+          850: "#0A0A0A",
+          800: "#121212",
+          700: "#181818",
+          600: "#242424",
         },
       },
       fontFamily: {
@@ -28,11 +28,11 @@ export default {
         mono: ['JetBrains Mono', 'monospace'],
       },
       boxShadow: {
-        'glow-green': '0 0 30px -5px rgba(0, 240, 118, 0.35)',
-        'glow-green-lg': '0 0 60px -10px rgba(0, 240, 118, 0.45)',
-        'glow-cyan': '0 0 35px -5px rgba(34, 211, 238, 0.3)',
-        'card-glass': '0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1)',
-        'phone-3d': '0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 30px 2px rgba(0, 240, 118, 0.15)',
+        'glow-green': '0 0 25px -4px rgba(255, 255, 255, 0.25)',
+        'glow-green-lg': '0 0 50px -8px rgba(255, 255, 255, 0.3)',
+        'glow-cyan': '0 0 25px -4px rgba(255, 255, 255, 0.2)',
+        'card-glass': '0 8px 32px 0 rgba(0, 0, 0, 0.7), inset 0 1px 1px 0 rgba(255, 255, 255, 0.1)',
+        'phone-3d': '0 25px 60px -15px rgba(0, 0, 0, 0.95), 0 0 25px 2px rgba(255, 255, 255, 0.1)',
       },
       animation: {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',

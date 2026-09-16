@@ -28,7 +28,7 @@ export const ProductShowcase: React.FC = () => {
   const [stepProgress, setStepProgress] = useState<number>(0);
   const [mouseTilt, setMouseTilt] = useState({ x: 0, y: 0 });
 
-  // 12 Real Scanned Product Screenshots & Authentic Journey Steps
+  // 12 Real Scanned Product Screenshots & Authentic Journey Steps in Monochrome
   const screens = [
     {
       id: 1,
@@ -37,10 +37,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Explore live city & campus corridors',
       description:
         'Launch the map to discover live travel corridors and active ride opportunities across your city before spending full fare on a solo cab.',
-      icon: <MapPin className="w-3.5 h-3.5 text-brand-green" />,
+      icon: <MapPin className="w-3.5 h-3.5 text-white" />,
       tag: '01 • Live Corridor Map',
       routeLabel: 'Bellandur • Kaikondrahalli • Haralur Corridor',
-      bannerQuote: '💰 Cut your travel cost in half. Match → Meet → Ride.',
       featureA: 'Live Radar: Real-time commuter corridor detection.',
       featureB: 'Instant Actions: One-tap Requests & Book Ride.',
     },
@@ -51,10 +50,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Set origin & destination pins',
       description:
         'Drop pins or type your origin and destination. WayFer calculates intersecting vector corridors along major roads and expressways.',
-      icon: <Navigation className="w-3.5 h-3.5 text-brand-cyan" />,
+      icon: <Navigation className="w-3.5 h-3.5 text-neutral-300" />,
       tag: '02 • Route Selection',
       routeLabel: 'Sarjapur (Accord Block) → Play Arena (Central Jail Rd)',
-      bannerQuote: 'Select your exact departure and dropoff locations.',
       featureA: 'Precise Gate Drops: Select residential & office gates.',
       featureB: 'Overlap Math: Matches riders travelling along the same path.',
     },
@@ -65,10 +63,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Smart 15-minute departure windows',
       description:
         'Choose today or schedule ahead with flexible 15-minute departure slots (7:00, 7:15, 7:30, 7:45 PM) to maximize overlapping co-riders.',
-      icon: <Calendar className="w-3.5 h-3.5 text-emerald-400" />,
+      icon: <Calendar className="w-3.5 h-3.5 text-white" />,
       tag: '03 • Departure Scheduling',
       routeLabel: 'Today, Sep 15 • 07:30 PM departure window',
-      bannerQuote: 'Flexible ±15 min slots increase match rate by 3x.',
       featureA: 'Scheduled Rides: Lock ahead for flights and shifts.',
       featureB: 'Flexible Sync: Automatic grouping within 15 min.',
     },
@@ -79,10 +76,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Corridor matching automatically begins',
       description:
         'Confirmation sheet displays your confirmed schedule: 15/9/2026 at 7:30 PM with green pickup and red destination markers connecting on the map.',
-      icon: <Check className="w-3.5 h-3.5 text-brand-green" />,
+      icon: <Check className="w-3.5 h-3.5 text-white" />,
       tag: '04 • Ride Scheduled',
-      routeLabel: 'Scheduled: Haralur (Green) → Kaikondrahalli (Red)',
-      bannerQuote: '🤝 Meet people around you going the same way.',
+      routeLabel: 'Scheduled: Haralur → Kaikondrahalli',
       featureA: 'Auto Discovery: Scans for nearby travellers.',
       featureB: 'Visual Path: Full route overview on city map.',
     },
@@ -93,10 +89,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Live commuter radar detected along your path',
       description:
         'Active ride status shows 1 match nearby with marker "A" appearing on Hosa Road. Review their path before booking a costly solo cab.',
-      icon: <Users className="w-3.5 h-3.5 text-amber-400" />,
+      icon: <Users className="w-3.5 h-3.5 text-white" />,
       tag: '05 • Active Ride Radar',
       routeLabel: 'Active ride • 1 match nearby on Hosa Road',
-      bannerQuote: '💰 Cut your travel cost in half. Match → Meet → Ride.',
       featureA: 'Nearby Match: Pin A flagged with overlapping destination.',
       featureB: 'Live Controls: Instant request or cancel option.',
     },
@@ -107,10 +102,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Complete route transparency before connecting',
       description:
         'Inspect your match: Aryan from Owners Court Layout to Silverwood Regency Apartment at 7:15 PM. Send a message request in one tap.',
-      icon: <ShieldCheck className="w-3.5 h-3.5 text-brand-cyan" />,
+      icon: <ShieldCheck className="w-3.5 h-3.5 text-neutral-300" />,
       tag: '06 • Co-Rider Profile',
       routeLabel: 'Aryan • Kasavanahalli → Hosa Rd (7:15 PM)',
-      bannerQuote: '⛽ Split the fare, save on fuel. Every shared ride counts.',
       featureA: 'Route Transparency: Exact pickup & dropoff addresses.',
       featureB: 'Direct Request: Send message request without sharing numbers.',
     },
@@ -121,10 +115,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Manage incoming & sent co-rider requests',
       description:
         'A red alert badge notifies you of incoming requests. Review Aryan: "Hey there!" with "Pending" status and coordinate instantly.',
-      icon: <MessageSquare className="w-3.5 h-3.5 text-teal-300" />,
+      icon: <MessageSquare className="w-3.5 h-3.5 text-white" />,
       tag: '07 • Message Requests',
       routeLabel: 'Received: Aryan • "Hey there!" • Pending (6:10 PM)',
-      bannerQuote: '🌿 Go green. Fewer vehicles, lesser emissions, cleaner air.',
       featureA: 'Alert Badges: Red notification dot on Requests tab.',
       featureB: 'Dual Tabs: Toggle between Received & Sent requests.',
     },
@@ -135,10 +128,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Arnav ✓ Matched in real time',
       description:
         'Private in-app chat lets matched riders coordinate: "Hey there!" — "Hi what time will you start?". Agree on exact pickup points without friction.',
-      icon: <Sparkles className="w-3.5 h-3.5 text-brand-green" />,
+      icon: <Sparkles className="w-3.5 h-3.5 text-white" />,
       tag: '08 • In-App Match Chat',
       routeLabel: 'Chat with Arnav • ✓ Matched co-rider',
-      bannerQuote: '🚦 Less traffic on the road — because you chose to share.',
       featureA: 'Private Chat: Zero personal phone number exposure.',
       featureB: 'Rendezvous Sync: Coordinate meeting spot before hailing.',
     },
@@ -149,10 +141,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Status switches to Accepted with live trip controls',
       description:
         'Aryan\'s request updates to "Accepted" at 8:43 PM. The shared fare arrangement is locked, with prominent "End Trip" control at your fingertips.',
-      icon: <Flag className="w-3.5 h-3.5 text-emerald-400" />,
+      icon: <Flag className="w-3.5 h-3.5 text-neutral-300" />,
       tag: '09 • Accepted Match',
       routeLabel: 'Aryan • Accepted (8:43 PM) • Shared fare active',
-      bannerQuote: 'Shared cab arrangement confirmed between riders.',
       featureA: 'Status Sync: Real-time update to Accepted badge.',
       featureB: 'Trip Controls: Red End Trip button ready for destination.',
     },
@@ -163,10 +154,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Safe arrival confirmation & verified savings',
       description:
         'Destination reached safely! "The trip has ended. Thank you for riding with us!" — complete with 50% cash saved and cleaner air delivered.',
-      icon: <CheckCircle2 className="w-3.5 h-3.5 text-brand-green" />,
+      icon: <CheckCircle2 className="w-3.5 h-3.5 text-white" />,
       tag: '10 • Trip Completed',
       routeLabel: 'Trip Ended • Thank you for riding with us!',
-      bannerQuote: '50% fare saved. Zero awkwardness.',
       featureA: 'Cost Slashed: Fair split automatically handled.',
       featureB: 'Clean Finish: No lingering links after trip conclusion.',
     },
@@ -177,10 +167,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Live highway & city progress',
       description:
         'Track live progress along the corridor. Every shared trip removes a vehicle from the road and halves travel expenses for both riders.',
-      icon: <Car className="w-3.5 h-3.5 text-brand-cyan" />,
+      icon: <Car className="w-3.5 h-3.5 text-neutral-300" />,
       tag: '11 • En-Route Tracking',
       routeLabel: 'Active transit along Hosa Rd corridor',
-      bannerQuote: '💰 Cut your travel cost in half. Match → Meet → Ride.',
       featureA: 'Corridor Tracking: Live location pin tracking.',
       featureB: 'Eco Impact: Direct contribution to cleaner city air.',
     },
@@ -191,10 +180,9 @@ export const ProductShowcase: React.FC = () => {
       subtitle: 'Real-time alert system on mobile',
       description:
         'Receive instant system notifications: "WayFer • now 🔔 New ride request: Aryan wants to share a ride with you", deep-linking straight into requests.',
-      icon: <Bell className="w-3.5 h-3.5 text-brand-green" />,
+      icon: <Bell className="w-3.5 h-3.5 text-white" />,
       tag: '12 • Push Notifications',
       routeLabel: 'Push Alert: "Aryan wants to share a ride with you"',
-      bannerQuote: 'Never miss an opportunity to share a ride.',
       featureA: 'Instant Push: Delivered straight to notification shade.',
       featureB: 'One-Tap Action: Deep-link straight to chat & accept.',
     },
@@ -258,34 +246,34 @@ export const ProductShowcase: React.FC = () => {
     <section
       id="product-showcase"
       ref={sectionRef}
-      className="relative h-[560vh] bg-dark-900 border-t border-white/5"
+      className="relative h-[560vh] bg-black border-t border-white/10"
     >
       {/* Sticky Viewport Canvas - Starts cleanly below navbar with guaranteed full view */}
       <div className="sticky top-16 h-[calc(100vh-4.5rem)] w-full flex flex-col justify-center py-2 px-3 sm:px-6 lg:px-8 z-20 overflow-hidden">
         
-        {/* Dynamic Ambient Spotlight */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-brand-green/10 blur-[140px] rounded-full pointer-events-none"></div>
+        {/* Dynamic Ambient Spotlight in Monochrome */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-white/[0.03] blur-[140px] rounded-full pointer-events-none"></div>
 
         <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col justify-center gap-2 sm:gap-2.5">
           
           {/* 1. Ultra-Compact Header */}
           <div className="flex items-center justify-between gap-3 shrink-0 pt-1">
             <div className="flex items-center gap-2 sm:gap-3">
-              <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-[10px] font-mono font-bold tracking-wide">
-                <Sparkles className="w-3 h-3" />
+              <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-mono font-bold tracking-wide">
+                <Sparkles className="w-3 h-3 text-white" />
                 <span>REAL APP EXPERIENCE</span>
               </span>
               <h2 className="text-base sm:text-xl lg:text-2xl font-black tracking-tight text-white leading-none">
-                Simple enough to understand in <span className="text-brand-green">seconds</span>.
+                Simple enough to understand in <span className="text-neutral-300">seconds</span>.
               </h2>
             </div>
 
             {/* Scroll Indicator & Controls */}
             <div className="flex items-center gap-2 shrink-0">
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/5 border border-white/10 text-slate-300 text-[10px] sm:text-xs font-mono backdrop-blur-md">
-                <ArrowDown className="w-3 h-3 text-brand-green animate-bounce" />
-                <span className="hidden md:inline text-slate-400">Scroll to advance:</span>
-                <span className="text-brand-green font-bold">
+              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/5 border border-white/10 text-white text-[10px] sm:text-xs font-mono backdrop-blur-md">
+                <ArrowDown className="w-3 h-3 text-white animate-bounce" />
+                <span className="hidden md:inline text-neutral-400">Scroll to advance:</span>
+                <span className="text-white font-bold">
                   {activeScreen < 10 ? `0${activeScreen}` : activeScreen} / 12
                 </span>
               </div>
@@ -293,7 +281,7 @@ export const ProductShowcase: React.FC = () => {
               <div className="flex items-center gap-0.5 bg-white/5 p-0.5 rounded-xl border border-white/10">
                 <button
                   onClick={() => scrollToStep(activeScreen > 1 ? activeScreen - 1 : 12)}
-                  className="p-1 rounded-lg hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
+                  className="p-1 rounded-lg hover:bg-white/10 text-neutral-300 hover:text-white transition-colors"
                   aria-label="Previous step"
                   title="Previous Step"
                 >
@@ -301,7 +289,7 @@ export const ProductShowcase: React.FC = () => {
                 </button>
                 <button
                   onClick={() => scrollToStep(activeScreen < 12 ? activeScreen + 1 : 1)}
-                  className="p-1 rounded-lg hover:bg-white/10 text-slate-300 hover:text-white transition-colors"
+                  className="p-1 rounded-lg hover:bg-white/10 text-neutral-300 hover:text-white transition-colors"
                   aria-label="Next step"
                   title="Next Step"
                 >
@@ -311,7 +299,7 @@ export const ProductShowcase: React.FC = () => {
             </div>
           </div>
 
-          {/* 2. Slim 12-Step Timeline Scrubber */}
+          {/* 2. Slim 12-Step Timeline Scrubber in Monochrome */}
           <div className="grid grid-cols-6 sm:grid-cols-12 gap-1 shrink-0">
             {screens.map((s) => {
               const isActive = s.id === activeScreen;
@@ -322,16 +310,16 @@ export const ProductShowcase: React.FC = () => {
                   onClick={() => scrollToStep(s.id)}
                   className={`relative px-1.5 py-1 rounded-xl border text-left transition-all duration-200 flex flex-col justify-between overflow-hidden cursor-pointer group ${
                     isActive
-                      ? 'bg-brand-green/15 border-brand-green/60 shadow-glow-green scale-[1.02]'
+                      ? 'bg-white/15 border-white/60 shadow-[0_0_20px_rgba(255,255,255,0.2)] scale-[1.02]'
                       : isPast
-                      ? 'bg-white/5 border-white/10 text-slate-300 hover:border-white/20'
-                      : 'bg-white/[0.02] border-white/5 text-slate-500 hover:border-white/10'
+                      ? 'bg-white/5 border-white/10 text-neutral-300 hover:border-white/20'
+                      : 'bg-white/[0.02] border-white/5 text-neutral-500 hover:border-white/10'
                   }`}
                 >
                   {/* Micro Progress Line inside active button */}
                   {isActive && (
                     <div
-                      className="absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-brand-cyan to-brand-green transition-all duration-75"
+                      className="absolute bottom-0 left-0 h-0.5 bg-white transition-all duration-75"
                       style={{ width: `${stepProgress}%` }}
                     />
                   )}
@@ -339,12 +327,12 @@ export const ProductShowcase: React.FC = () => {
                   <div className="flex items-center justify-between">
                     <span
                       className={`font-mono text-[9px] sm:text-[10px] font-black transition-colors ${
-                        isActive ? 'text-brand-green' : isPast ? 'text-white' : 'text-slate-500'
+                        isActive ? 'text-white' : isPast ? 'text-neutral-200' : 'text-neutral-500'
                       }`}
                     >
                       {s.id < 10 ? `0${s.id}` : s.id}
                     </span>
-                    {isActive && <span className="w-1 h-1 rounded-full bg-brand-green animate-ping"></span>}
+                    {isActive && <span className="w-1 h-1 rounded-full bg-white animate-ping"></span>}
                   </div>
 
                   <div className="text-[8px] sm:text-[9px] font-bold truncate text-white leading-tight mt-0.5">
@@ -360,14 +348,14 @@ export const ProductShowcase: React.FC = () => {
             ref={stageRef}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 items-center p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-[#080D18] border border-white/10 shadow-2xl relative overflow-hidden shrink-0 max-h-[440px] sm:max-h-[460px]"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-6 items-center p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-[#0A0A0A] border border-white/15 shadow-2xl relative overflow-hidden shrink-0 max-h-[440px] sm:max-h-[460px]"
           >
-            {/* Ambient Background Route Line */}
+            {/* Ambient Background Route Line in Monochrome */}
             <div className="absolute inset-0 opacity-15 pointer-events-none">
               <svg className="w-full h-full" viewBox="0 0 1000 600" fill="none">
                 <path
                   d="M -50 100 C 300 400, 700 100, 1100 500"
-                  stroke="#00F076"
+                  stroke="#FFFFFF"
                   strokeWidth="4"
                   strokeDasharray="10 8"
                   className="route-animate"
@@ -389,22 +377,22 @@ export const ProductShowcase: React.FC = () => {
               </div>
 
               {/* Corridor Micro Badge */}
-              <div className="-mt-2 px-2.5 py-0.5 rounded-full bg-dark-950/90 border border-white/10 text-[9px] sm:text-[10px] font-mono text-slate-300 flex items-center gap-1.5 backdrop-blur-md shadow-lg shrink-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-green animate-pulse"></span>
+              <div className="-mt-2 px-2.5 py-0.5 rounded-full bg-black/90 border border-white/15 text-[9px] sm:text-[10px] font-mono text-neutral-300 flex items-center gap-1.5 backdrop-blur-md shadow-lg shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
                 <span className="truncate max-w-[220px]">{current.routeLabel}</span>
               </div>
             </div>
 
-            {/* Right: Story Narrator (Authentic data scanned from real screenshots) */}
+            {/* Right: Story Narrator */}
             <div className="lg:col-span-7 space-y-2 sm:space-y-3 relative z-10 flex flex-col justify-center">
               
               {/* Step Tag */}
               <div className="flex items-center justify-between">
-                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-[10px] sm:text-[11px] font-mono font-bold">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-white text-[10px] sm:text-[11px] font-mono font-bold">
                   {current.icon}
                   <span>{current.tag}</span>
                 </div>
-                <span className="text-[10px] sm:text-[11px] font-mono text-slate-500">
+                <span className="text-[10px] sm:text-[11px] font-mono text-neutral-400">
                   Step {activeScreen} of 12
                 </span>
               </div>
@@ -414,27 +402,27 @@ export const ProductShowcase: React.FC = () => {
                 <h3 className="text-lg sm:text-2xl font-black text-white tracking-tight leading-tight transition-all duration-200">
                   {current.title}
                 </h3>
-                <p className="text-xs sm:text-sm font-bold text-brand-green">
+                <p className="text-xs sm:text-sm font-bold text-neutral-300">
                   {current.subtitle}
                 </p>
               </div>
 
               {/* Description */}
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal line-clamp-2 sm:line-clamp-3">
+              <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-normal line-clamp-2 sm:line-clamp-3">
                 {current.description}
               </p>
 
               {/* Feature Highlights Grid */}
               <div className="grid grid-cols-2 gap-2 pt-0.5">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/5 hover:border-white/15 transition-colors">
+                <div className="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
                   <div className="font-bold text-white text-[11px] mb-0.5">Feature Spotlight</div>
-                  <span className="text-[10px] text-slate-400 leading-tight block">
+                  <span className="text-[10px] text-neutral-400 leading-tight block">
                     {current.featureA}
                   </span>
                 </div>
-                <div className="p-2 rounded-xl bg-white/5 border border-white/5 hover:border-white/15 transition-colors">
+                <div className="p-2 rounded-xl bg-white/5 border border-white/10 hover:border-white/20 transition-colors">
                   <div className="font-bold text-white text-[11px] mb-0.5">Real Experience</div>
-                  <span className="text-[10px] text-slate-400 leading-tight block">
+                  <span className="text-[10px] text-neutral-400 leading-tight block">
                     {current.featureB}
                   </span>
                 </div>
@@ -444,7 +432,7 @@ export const ProductShowcase: React.FC = () => {
               <div className="pt-2 border-t border-white/10 flex items-center justify-between shrink-0">
                 <button
                   onClick={() => scrollToStep(activeScreen < 12 ? activeScreen + 1 : 1)}
-                  className="px-3 py-1.5 rounded-xl bg-brand-green hover:bg-brand-neon text-dark-950 text-xs font-black uppercase tracking-wider shadow-glow-green transition-all flex items-center gap-1"
+                  className="px-3 py-1.5 rounded-xl bg-white hover:bg-neutral-200 text-black text-xs font-black uppercase tracking-wider shadow-[0_0_20px_rgba(255,255,255,0.25)] transition-all flex items-center gap-1"
                 >
                   <span>{activeScreen < 12 ? 'Next Step' : 'Restart Flow'}</span>
                   <ArrowRight className="w-3 h-3" />
@@ -452,7 +440,7 @@ export const ProductShowcase: React.FC = () => {
 
                 <a
                   href="#waitlist"
-                  className="text-xs font-bold text-brand-green hover:underline flex items-center gap-1"
+                  className="text-xs font-bold text-white hover:underline flex items-center gap-1"
                 >
                   Join Waitlist <ArrowRight className="w-3 h-3" />
                 </a>
@@ -462,12 +450,12 @@ export const ProductShowcase: React.FC = () => {
 
           </div>
 
-          {/* 4. Bottom Story Progress Strip (Takes ~16px height) */}
-          <div className="flex items-center justify-between gap-3 text-[10px] font-mono text-slate-500 shrink-0">
+          {/* 4. Bottom Story Progress Strip */}
+          <div className="flex items-center justify-between gap-3 text-[10px] font-mono text-neutral-400 shrink-0">
             <span className="hidden sm:inline">Scroll down to move through all 12 app steps</span>
             <div className="flex-1 max-w-xs h-1 bg-white/10 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-brand-cyan to-brand-green transition-all duration-150 rounded-full"
+                className="h-full bg-white transition-all duration-150 rounded-full"
                 style={{ width: `${Math.round(overallProgress * 100)}%` }}
               />
             </div>

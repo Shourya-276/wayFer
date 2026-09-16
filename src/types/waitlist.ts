@@ -6,9 +6,11 @@ export interface WaitlistSubmission {
   phone?: string;
   organization?: string;
   userType?: 'Student' | 'Working Professional' | 'Other';
-  useCase?: 'College commute' | 'Airport trips' | 'Daily commute' | 'Intercity travel' | 'Other';
+  useCase?: 'College commute' | 'Airport trips' | 'Daily commute' | 'Metro & transit' | 'Intercity travel' | 'Other';
   createdAt: string;
 }
+
+export type WaitlistFormData = Omit<WaitlistSubmission, 'id' | 'createdAt'>;
 
 export interface WaitlistState {
   status: 'idle' | 'loading' | 'success' | 'error';

@@ -43,7 +43,7 @@ export const App: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-dark-950 text-slate-100 font-sans selection:bg-brand-green selection:text-dark-950">
+    <div className="min-h-screen bg-black text-neutral-100 font-sans selection:bg-white selection:text-black">
       {/* Navigation Header */}
       <Navbar onAdminClick={() => navigateTo('/admin')} />
 
@@ -55,7 +55,7 @@ export const App: React.FC = () => {
         {/* 2. The Opening Story */}
         <OpeningStory />
 
-        {/* 3. The Real Story — SRM ₹1,000 Origin */}
+        {/* 3. The Origin Story — Splitting The Ride */}
         <SrmOriginStory />
 
         {/* 4. The Core Insight */}

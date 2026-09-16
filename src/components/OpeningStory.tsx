@@ -44,39 +44,39 @@ export const OpeningStory: React.FC = () => {
         
         {/* Background Radial Spotlight */}
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-brand-green/10 blur-[150px] rounded-full pointer-events-none transition-opacity duration-700"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[450px] bg-white/[0.04] blur-[150px] rounded-full pointer-events-none transition-opacity duration-700"
           style={{ opacity: showLine3 ? 0.9 : 0.4 }}
         ></div>
 
         <div className="max-w-4xl mx-auto w-full text-center relative z-10 space-y-8">
           
           {/* Section Indicator Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-brand-green text-xs font-mono font-semibold backdrop-blur-md">
-            <Compass className="w-3.5 h-3.5 text-brand-green" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 border border-white/15 text-white text-xs font-mono font-semibold backdrop-blur-md">
+            <Compass className="w-3.5 h-3.5 text-white" />
             <span>THE REALIZATION</span>
-            <span className="text-slate-500">•</span>
-            <span className="text-slate-400 font-sans font-normal">Scroll to continue</span>
+            <span className="text-neutral-600">•</span>
+            <span className="text-neutral-400 font-sans font-normal">Scroll to continue</span>
           </div>
 
-          {/* Animated Intersecting Route Vector Canvas */}
+          {/* Animated Intersecting Route Vector Canvas in Monochrome */}
           <div className="w-full max-w-lg h-40 mx-auto relative">
             <svg className="w-full h-full" viewBox="0 0 400 180" fill="none">
               {/* Background Guide Tracks */}
               <path
                 d="M30 140 C 100 130, 160 90, 200 60"
-                stroke="#121D2F"
+                stroke="#171717"
                 strokeWidth="4"
               />
               <path
                 d="M370 140 C 300 130, 240 90, 200 60"
-                stroke="#121D2F"
+                stroke="#171717"
                 strokeWidth="4"
               />
 
-              {/* Route A - Heading to Destination (Left / Cyan) */}
+              {/* Route A - White Glowing Track */}
               <path
                 d="M30 140 C 100 130, 160 90, 200 60"
-                stroke="#22D3EE"
+                stroke="#FFFFFF"
                 strokeWidth="3.5"
                 strokeDasharray="200"
                 strokeDashoffset={route1DashOffset}
@@ -84,10 +84,10 @@ export const OpeningStory: React.FC = () => {
                 className="transition-all duration-300"
               />
 
-              {/* Route B - Heading to Destination (Right / Emerald) */}
+              {/* Route B - Silver Glowing Track */}
               <path
                 d="M370 140 C 300 130, 240 90, 200 60"
-                stroke="#00F076"
+                stroke="#A3A3A3"
                 strokeWidth="3.5"
                 strokeDasharray="200"
                 strokeDashoffset={route2DashOffset}
@@ -100,8 +100,8 @@ export const OpeningStory: React.FC = () => {
                 className="transition-all duration-500"
                 style={{ opacity: showLine1 ? 1 : 0.2, transform: showLine1 ? 'scale(1)' : 'scale(0.8)' }}
               >
-                <circle cx="30" cy="140" r="6" fill="#22D3EE" />
-                <circle cx="30" cy="140" r="14" fill="#22D3EE" fillOpacity="0.2" />
+                <circle cx="30" cy="140" r="6" fill="#FFFFFF" />
+                <circle cx="30" cy="140" r="14" fill="#FFFFFF" fillOpacity="0.2" />
               </g>
 
               {/* Origin Node B */}
@@ -109,8 +109,8 @@ export const OpeningStory: React.FC = () => {
                 className="transition-all duration-500"
                 style={{ opacity: showLine2 ? 1 : 0.2, transform: showLine2 ? 'scale(1)' : 'scale(0.8)' }}
               >
-                <circle cx="370" cy="140" r="6" fill="#00F076" />
-                <circle cx="370" cy="140" r="14" fill="#00F076" fillOpacity="0.2" />
+                <circle cx="370" cy="140" r="6" fill="#A3A3A3" />
+                <circle cx="370" cy="140" r="14" fill="#A3A3A3" fillOpacity="0.2" />
               </g>
 
               {/* Intersecting Destination Node (Activated on Line 3) */}
@@ -123,30 +123,30 @@ export const OpeningStory: React.FC = () => {
                 }}
               >
                 {showLine3 && (
-                  <circle cx="0" cy="0" r="28" fill="#00F076" fillOpacity="0.2" className="animate-ping" />
+                  <circle cx="0" cy="0" r="28" fill="#FFFFFF" fillOpacity="0.2" className="animate-ping" />
                 )}
-                <circle cx="0" cy="0" r="14" fill="#00F076" fillOpacity="0.35" />
-                <circle cx="0" cy="0" r="7" fill="#00F076" />
-                <circle cx="0" cy="0" r="2.5" fill="#050709" />
+                <circle cx="0" cy="0" r="14" fill="#FFFFFF" fillOpacity="0.35" />
+                <circle cx="0" cy="0" r="7" fill="#FFFFFF" />
+                <circle cx="0" cy="0" r="2.5" fill="#000000" />
               </g>
             </svg>
 
             {/* Labels */}
             <span
               className="absolute bottom-1 left-6 text-[10px] font-mono transition-opacity duration-500"
-              style={{ opacity: showLine1 ? 1 : 0.2, color: '#22D3EE' }}
+              style={{ opacity: showLine1 ? 1 : 0.2, color: '#FFFFFF' }}
             >
               Rider 1 • Campus
             </span>
             <span
               className="absolute bottom-1 right-6 text-[10px] font-mono transition-opacity duration-500"
-              style={{ opacity: showLine2 ? 1 : 0.2, color: '#00F076' }}
+              style={{ opacity: showLine2 ? 1 : 0.2, color: '#A3A3A3' }}
             >
               Rider 2 • Nearby
             </span>
             <span
               className="absolute top-1 left-1/2 -translate-x-1/2 text-[10px] font-mono uppercase tracking-widest transition-colors duration-500"
-              style={{ color: showLine3 ? '#00F076' : '#64748B' }}
+              style={{ color: showLine3 ? '#FFFFFF' : '#737373' }}
             >
               Shared Destination
             </span>
@@ -178,12 +178,12 @@ export const OpeningStory: React.FC = () => {
                 filter: showLine2 ? 'blur(0px)' : 'blur(4px)',
               }}
             >
-              <h3 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-200">
+              <h3 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-neutral-300">
                 "They were too."
               </h3>
             </div>
 
-            {/* Statement 3 - Major Emerald Climax */}
+            {/* Statement 3 - Major White Climax */}
             <div
               className="transition-all duration-700 ease-out"
               style={{
@@ -192,7 +192,7 @@ export const OpeningStory: React.FC = () => {
                 filter: showLine3 ? 'blur(0px)' : 'blur(6px)',
               }}
             >
-              <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-brand-green drop-shadow-[0_0_25px_rgba(0,240,118,0.4)]">
+              <h3 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.4)]">
                 "You just didn't know each other."
               </h3>
             </div>
@@ -205,9 +205,9 @@ export const OpeningStory: React.FC = () => {
                 transform: showLine4 ? 'translateY(0px) scale(1)' : 'translateY(18px) scale(0.9)',
               }}
             >
-              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-brand-green/30 backdrop-blur-xl shadow-glow-green">
-                <Sparkles className="w-4 h-4 text-brand-green" />
-                <span className="text-sm sm:text-base font-semibold text-slate-200">
+              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 backdrop-blur-xl shadow-[0_0_20px_rgba(255,255,255,0.15)]">
+                <Sparkles className="w-4 h-4 text-white" />
+                <span className="text-sm sm:text-base font-semibold text-neutral-200">
                   That's the problem <strong className="text-white font-black">WayFer</strong> is built around.
                 </span>
               </div>
@@ -219,11 +219,11 @@ export const OpeningStory: React.FC = () => {
           <div className="pt-4 flex flex-col items-center gap-2">
             <div className="w-36 h-1 bg-white/10 rounded-full overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-brand-cyan to-brand-green rounded-full transition-all duration-150"
+                className="h-full bg-white rounded-full transition-all duration-150"
                 style={{ width: `${Math.round(progress * 100)}%` }}
               ></div>
             </div>
-            <span className="text-[10px] font-mono text-slate-500">
+            <span className="text-[10px] font-mono text-neutral-500">
               {progress < 0.95 ? 'Scroll down to advance the story' : 'Keep scrolling for the origin story'}
             </span>
           </div>

@@ -41,15 +41,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminClick }) => {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-neutral-300">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="transition-colors duration-200 hover:text-brand-green relative py-1 group"
+              className="transition-colors duration-200 hover:text-white relative py-1 group"
             >
               {link.name}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-green transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </nav>
@@ -58,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminClick }) => {
         <div className="hidden md:flex items-center gap-4">
           <a
             href="#waitlist"
-            className="relative inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-dark-950 bg-brand-green hover:bg-brand-neon shadow-glow-green transition-all duration-300 hover:scale-105 active:scale-95 group overflow-hidden"
+            className="relative inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider text-black bg-white hover:bg-neutral-200 shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 hover:scale-105 active:scale-95 group overflow-hidden"
           >
             <span className="relative z-10 flex items-center gap-1.5">
               Join Waitlist
@@ -71,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminClick }) => {
         {/* Mobile Menu Toggle Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-2 rounded-xl bg-dark-850 text-slate-300 border border-white/10 hover:text-white hover:border-brand-green/40 transition-colors"
+          className="md:hidden p-2 rounded-xl bg-neutral-900 text-neutral-300 border border-white/10 hover:text-white hover:border-white/40 transition-colors"
           aria-label="Toggle Navigation Menu"
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -80,17 +80,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminClick }) => {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-[65px] bg-dark-950/95 backdrop-blur-2xl border-b border-white/10 px-6 py-8 shadow-2xl transition-all animate-in fade-in slide-in-from-top-4 duration-300">
+        <div className="md:hidden fixed inset-x-0 top-[65px] bg-black/95 backdrop-blur-2xl border-b border-white/10 px-6 py-8 shadow-2xl transition-all animate-in fade-in slide-in-from-top-4 duration-300">
           <div className="flex flex-col gap-5 text-base font-semibold">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-slate-300 hover:text-brand-green transition-colors py-2 border-b border-white/5 flex items-center justify-between"
+                className="text-neutral-300 hover:text-white transition-colors py-2 border-b border-white/5 flex items-center justify-between"
               >
                 {link.name}
-                <ArrowRight className="w-4 h-4 text-slate-600" />
+                <ArrowRight className="w-4 h-4 text-neutral-600" />
               </a>
             ))}
             {onAdminClick && (
@@ -99,16 +99,16 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminClick }) => {
                   setMobileMenuOpen(false);
                   onAdminClick();
                 }}
-                className="text-slate-400 hover:text-brand-green transition-colors py-2 border-b border-white/5 flex items-center justify-between text-left font-mono text-sm"
+                className="text-neutral-400 hover:text-white transition-colors py-2 border-b border-white/5 flex items-center justify-between text-left font-mono text-sm"
               >
                 <span>/admin (Admin Console)</span>
-                <ArrowRight className="w-4 h-4 text-slate-600" />
+                <ArrowRight className="w-4 h-4 text-neutral-600" />
               </button>
             )}
             <a
               href="#waitlist"
               onClick={() => setMobileMenuOpen(false)}
-              className="mt-4 w-full py-3.5 rounded-xl bg-brand-green text-dark-950 font-bold text-center uppercase tracking-wider text-sm shadow-glow-green flex items-center justify-center gap-2"
+              className="mt-4 w-full py-3.5 rounded-xl bg-white text-black font-bold text-center uppercase tracking-wider text-sm shadow-[0_0_20px_rgba(255,255,255,0.2)] flex items-center justify-center gap-2"
             >
               Join the Waitlist
               <ArrowRight className="w-4 h-4" />
