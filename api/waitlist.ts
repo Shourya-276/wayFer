@@ -17,53 +17,56 @@ export interface WaitlistRecord {
 const TMP_FILE = path.join('/tmp', 'wayfer_waitlist.json');
 const LOCAL_FILE = path.join(process.cwd(), 'data', 'waitlist.json');
 
-function getStoragePath(): string {
-  // If local file exists (in dev or build), use it; otherwise /tmp
-  if (fs.existsSync(LOCAL_FILE)) {
-    return LOCAL_FILE;
-  }
-  return TMP_FILE;
-}
-
 function readEntries(): WaitlistRecord[] {
+  // Check /tmp first (holds latest updates in serverless runtime)
   try {
-    const target = getStoragePath();
-    if (fs.existsSync(target)) {
-      const data = fs.readFileSync(target, 'utf-8');
+    if (fs.existsSync(TMP_FILE)) {
+      const data = fs.readFileSync(TMP_FILE, 'utf-8');
       return JSON.parse(data);
     }
   } catch (err) {
-    console.error('Error reading waitlist:', err);
+    console.error('Error reading waitlist from /tmp:', err);
   }
 
-  // Fallback if TMP doesn't exist yet
-  if (fs.existsSync(LOCAL_FILE)) {
-    try {
-      return JSON.parse(fs.readFileSync(LOCAL_FILE, 'utf-8'));
-    } catch {
-      return [];
+  // Fallback to bundled data/waitlist.json for initial seed
+  try {
+    if (fs.existsSync(LOCAL_FILE)) {
+      const initial = JSON.parse(fs.readFileSync(LOCAL_FILE, 'utf-8'));
+      try {
+        fs.writeFileSync(TMP_FILE, JSON.stringify(initial, null, 2), 'utf-8');
+      } catch {}
+      return initial;
     }
+  } catch (err) {
+    console.error('Error reading local seed waitlist:', err);
   }
+
   return [];
 }
 
 function saveEntries(entries: WaitlistRecord[]) {
+  // Always write to /tmp (safe on Vercel AWS Lambda environment)
   try {
-    const target = getStoragePath();
-    const dir = path.dirname(target);
+    const dir = path.dirname(TMP_FILE);
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
-    fs.writeFileSync(target, JSON.stringify(entries, null, 2), 'utf-8');
-    
-    // Also mirror to /tmp if target was local, or vice versa if possible
-    if (target !== TMP_FILE) {
-      try {
-        fs.writeFileSync(TMP_FILE, JSON.stringify(entries, null, 2), 'utf-8');
-      } catch {}
-    }
+    fs.writeFileSync(TMP_FILE, JSON.stringify(entries, null, 2), 'utf-8');
   } catch (err) {
-    console.error('Error saving waitlist:', err);
+    console.error('Error saving waitlist to /tmp:', err);
+  }
+
+  // When running locally in development (not on Vercel), mirror to data/waitlist.json
+  if (!process.env.VERCEL) {
+    try {
+      const dir = path.dirname(LOCAL_FILE);
+      if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+      }
+      fs.writeFileSync(LOCAL_FILE, JSON.stringify(entries, null, 2), 'utf-8');
+    } catch (err) {
+      console.error('Error saving waitlist to local file:', err);
+    }
   }
 }
 
