@@ -1,0 +1,57 @@
+[
+  {
+    "id": "wf_srm001",
+    "name": "Rahul Varma",
+    "email": "rahul.v@srmist.edu.in",
+    "city": "Chennai",
+    "phone": "+91 98401 23456",
+    "organization": "SRM Institute of Science and Technology",
+    "userType": "Student",
+    "useCase": "Airport trips",
+    "createdAt": "2026-09-16T08:30:00.000Z"
+  },
+  {
+    "id": "wf_srm002",
+    "name": "Sneha Krishnan",
+    "email": "sneha.k@srmist.edu.in",
+    "city": "Chennai",
+    "phone": "+91 97102 98765",
+    "organization": "SRM IST Kattankulathur",
+    "userType": "Student",
+    "useCase": "Airport trips",
+    "createdAt": "2026-09-16T09:15:00.000Z"
+  },
+  {
+    "id": "wf_tcs003",
+    "name": "Vikram Adithya",
+    "email": "vikram.adithya@tcs.com",
+    "city": "Chennai",
+    "phone": "+91 99620 11223",
+    "organization": "TCS Siruseri",
+    "userType": "Working Professional",
+    "useCase": "Daily commute",
+    "createdAt": "2026-09-16T10:00:00.000Z"
+  },
+  {
+    "id": "wf_blr004",
+    "name": "Ananya Roy",
+    "email": "ananya.roy@gmail.com",
+    "city": "Bengaluru",
+    "phone": "+91 98800 44556",
+    "organization": "Manyata Tech Park",
+    "userType": "Working Professional",
+    "useCase": "Airport trips",
+    "createdAt": "2026-09-16T10:45:00.000Z"
+  },
+  {
+    "id": "wf_srm005",
+    "name": "Arjun Menon",
+    "email": "arjun.m@srmist.edu.in",
+    "city": "Chennai",
+    "phone": "+91 94440 77889",
+    "organization": "SRM University (Hostel block)",
+    "userType": "Student",
+    "useCase": "College commute",
+    "createdAt": "2026-09-16T11:20:00.000Z"
+  }
+]
