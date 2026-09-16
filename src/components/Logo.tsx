@@ -39,7 +39,7 @@ export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', showTex
       {showText && (
         <div className="flex items-center tracking-tight">
           <span className={`font-black tracking-tight text-white ${textSizes[size]}`}>
-            Way<span className="text-neutral-400">Fer</span>
+            WayFer
           </span>
         </div>
       )}
