@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AdminLogin } from './AdminLogin';
 import { AdminDashboard } from './AdminDashboard';
+import { BackgroundAudio } from '../BackgroundAudio';
 import { api } from '../../services/api';
 
 interface AdminPageProps {
@@ -23,9 +24,14 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onBackToSite }) => {
     setIsAuthenticated(false);
   };
 
-  if (!isAuthenticated) {
-    return <AdminLogin onLoginSuccess={handleLoginSuccess} onBackToSite={onBackToSite} />;
-  }
-
-  return <AdminDashboard onLogout={handleLogout} onBackToSite={onBackToSite} />;
+  return (
+    <>
+      {!isAuthenticated ? (
+        <AdminLogin onLoginSuccess={handleLoginSuccess} onBackToSite={onBackToSite} />
+      ) : (
+        <AdminDashboard onLogout={handleLogout} onBackToSite={onBackToSite} />
+      )}
+      <BackgroundAudio />
+    </>
+  );
 };
