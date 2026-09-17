@@ -14,6 +14,8 @@ export const WaitlistSection: React.FC = () => {
     useCase: 'College commute',
   });
 
+  const [orgType, setOrgType] = useState<string>('');
+  const [customOrg, setCustomOrg] = useState<string>('');
   const [state, setState] = useState<WaitlistState>({ status: 'idle' });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -122,7 +124,11 @@ export const WaitlistSection: React.FC = () => {
             </div>
 
             <button
-              onClick={() => setState({ status: 'idle' })}
+              onClick={() => {
+                setState({ status: 'idle' });
+                setOrgType('');
+                setCustomOrg('');
+              }}
               className="px-6 py-2.5 rounded-full bg-white/10 text-neutral-300 hover:text-white text-xs font-semibold transition-colors"
             >
               Submit another response
@@ -233,13 +239,40 @@ export const WaitlistSection: React.FC = () => {
                     <Building className="w-3 h-3 text-neutral-500" />
                     College / Company (Optional)
                   </label>
-                  <input
-                    type="text"
-                    placeholder="e.g. Campus / Office / Company"
-                    value={formData.organization}
-                    onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
-                    className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-white text-white placeholder-neutral-600 text-sm outline-none transition-colors"
-                  />
+                  <select
+                    value={orgType}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setOrgType(val);
+                      if (val === 'Other') {
+                        setFormData({ ...formData, organization: customOrg });
+                      } else {
+                        setFormData({ ...formData, organization: val });
+                      }
+                    }}
+                    className="w-full px-4 py-3 rounded-2xl bg-[#121212] border border-white/10 focus:border-white text-white text-sm outline-none transition-colors"
+                  >
+                    <option value="">Select option...</option>
+                    <option value="College">College</option>
+                    <option value="Company">Company</option>
+                    <option value="Other">Other</option>
+                  </select>
+
+                  {/* If Other is selected, person can type */}
+                  {orgType === 'Other' && (
+                    <input
+                      type="text"
+                      autoFocus
+                      placeholder="Please specify your organization"
+                      value={customOrg}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setCustomOrg(val);
+                        setFormData({ ...formData, organization: val || 'Other' });
+                      }}
+                      className="w-full mt-2 px-4 py-3 rounded-2xl bg-white/5 border border-white/20 focus:border-white text-white placeholder-neutral-500 text-sm outline-none transition-colors animate-in fade-in duration-200"
+                    />
+                  )}
                 </div>
               </div>
 
