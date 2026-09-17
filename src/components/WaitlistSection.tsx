@@ -14,6 +14,8 @@ export const WaitlistSection: React.FC = () => {
     useCase: 'College commute',
   });
 
+  const [selectedCity, setSelectedCity] = useState<string>('');
+  const [customCity, setCustomCity] = useState<string>('');
   const [orgType, setOrgType] = useState<string>('');
   const [customOrg, setCustomOrg] = useState<string>('');
   const [state, setState] = useState<WaitlistState>({ status: 'idle' });
@@ -126,6 +128,8 @@ export const WaitlistSection: React.FC = () => {
             <button
               onClick={() => {
                 setState({ status: 'idle' });
+                setSelectedCity('');
+                setCustomCity('');
                 setOrgType('');
                 setCustomOrg('');
               }}
@@ -205,14 +209,45 @@ export const WaitlistSection: React.FC = () => {
                     <MapPin className="w-3 h-3 text-white" />
                     City <span className="text-white">*</span>
                   </label>
-                  <input
-                    type="text"
+                  <select
                     required
-                    placeholder="e.g. Chennai / Bengaluru"
-                    value={formData.city}
-                    onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                    className="w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/10 focus:border-white focus:ring-1 focus:ring-white text-white placeholder-neutral-500 text-sm outline-none transition-colors"
-                  />
+                    value={selectedCity}
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      setSelectedCity(val);
+                      if (val === 'Other') {
+                        setFormData({ ...formData, city: customCity });
+                      } else {
+                        setFormData({ ...formData, city: val });
+                      }
+                    }}
+                    className="w-full px-4 py-3 rounded-2xl bg-[#121212] border border-white/10 focus:border-white text-white text-sm outline-none transition-colors"
+                  >
+                    <option value="">Select City...</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Bengaluru">Bengaluru</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Other">Other</option>
+                  </select>
+
+                  {/* If Other is selected, person can type */}
+                  {selectedCity === 'Other' && (
+                    <input
+                      type="text"
+                      required
+                      autoFocus
+                      placeholder="Enter your city name"
+                      value={customCity}
+                      onChange={(e) => {
+                        const val = e.target.value;
+                        setCustomCity(val);
+                        setFormData({ ...formData, city: val });
+                      }}
+                      className="w-full mt-2 px-4 py-3 rounded-2xl bg-white/5 border border-white/20 focus:border-white text-white placeholder-neutral-500 text-sm outline-none transition-colors animate-in fade-in duration-200"
+                    />
+                  )}
                 </div>
               </div>
 
