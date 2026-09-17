@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, GraduationCap, Briefcase, Building, Plane } from 'lucide-react';
+import { ArrowRight, GraduationCap, Briefcase, Train, Plane } from 'lucide-react';
 
 export const RouteCorridors: React.FC = () => {
   const corridors = [
@@ -28,12 +28,12 @@ export const RouteCorridors: React.FC = () => {
       description: 'Sync your morning departure with students heading to the same faculty gates.',
     },
     {
-      title: 'RESIDENCE → TECH PARK',
-      origin: 'Gated Communities',
-      destination: 'IT Corridors',
-      icon: <Building className="w-5 h-5 text-white" />,
-      tag: 'Weekday Schedules',
-      description: 'Shared daily rides along major arterial expressways without complicated setups.',
+      title: 'CAMPUS → RAILWAY STATION',
+      origin: 'College Campuses',
+      destination: 'Railway & Bus Terminals',
+      icon: <Train className="w-5 h-5 text-white" />,
+      tag: 'Weekend & Holiday Travel',
+      description: 'Catch early morning trains and intercity departures with travellers heading along the same transit route.',
     },
   ];
 
