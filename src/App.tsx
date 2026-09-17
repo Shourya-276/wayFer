@@ -7,8 +7,6 @@ import { CoreInsight } from './components/CoreInsight';
 import { RouteCorridors } from './components/RouteCorridors';
 import { HowItWorks } from './components/HowItWorks';
 import { ProductShowcase } from './components/ProductShowcase';
-import { LiveMatchSimulator } from './components/LiveMatchSimulator';
-import { ProductDifference } from './components/ProductDifference';
 import { WaitlistSection } from './components/WaitlistSection';
 import { EarlyAccessBanner } from './components/EarlyAccessBanner';
 import { CinematicFinale } from './components/CinematicFinale';
@@ -64,16 +62,10 @@ export const App: React.FC = () => {
         {/* 6. How WayFer Works (MATCH → MEET → RIDE) */}
         <HowItWorks />
 
-        {/* 7. Real Product Showcase (8-Screen Experience) */}
+        {/* 7. Real Product Showcase (11-Screen Experience) */}
         <ProductShowcase />
 
-        {/* 8. The "People Going Your Way" Experience Simulation */}
-        <LiveMatchSimulator />
-
-        {/* 9. The Product Difference */}
-        <ProductDifference />
-
-        {/* 10. Primary Waitlist & Route-trail Success */}
+        {/* 8. Primary Waitlist & Route-trail Success */}
         <WaitlistSection />
 
         {/* 14. Early Access */}
