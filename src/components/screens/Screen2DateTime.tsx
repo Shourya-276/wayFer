@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clock, Sparkles, Check } from 'lucide-react';
+import { Clock, Zap, Check } from 'lucide-react';
 
 export const Screen2DateTime: React.FC = () => {
   const [isRideNow, setIsRideNow] = useState(false);
@@ -79,7 +79,7 @@ export const Screen2DateTime: React.FC = () => {
                   </div>
                   {active ? (
                     <div className="flex items-center gap-1 text-[9px] text-white font-bold">
-                      <Sparkles className="w-3 h-3" />
+                      <Zap className="w-3 h-3 fill-white" />
                       High match density
                     </div>
                   ) : (

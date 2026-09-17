@@ -1,11 +1,32 @@
-import React, { useState } from 'react';
-import { User, Users, MapPin, Sparkles } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { User, Users, MapPin, Zap } from 'lucide-react';
 
 export const SrmOriginStory: React.FC = () => {
+  const sectionRef = useRef<HTMLElement>(null);
   const [viewMode, setViewMode] = useState<'alone' | 'connected'>('alone');
+  const prevTriggerState = useRef<'above' | 'below'>('above');
+
+  // When user scrolls down into the section, automatically move from 1 rider solo to connected
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const threshold = window.innerHeight * 0.45;
+      const currentState = rect.top < threshold ? 'below' : 'above';
+
+      if (currentState !== prevTriggerState.current) {
+        prevTriggerState.current = currentState;
+        setViewMode(currentState === 'below' ? 'connected' : 'alone');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <section id="the-story" className="relative py-28 px-4 sm:px-6 lg:px-8 bg-black border-y border-white/10 overflow-hidden">
+    <section ref={sectionRef} id="the-story" className="relative py-28 px-4 sm:px-6 lg:px-8 bg-black border-y border-white/10 overflow-hidden">
       {/* Subtle Background map contour glow in Monochrome */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-white/[0.03] blur-[120px] rounded-full pointer-events-none"></div>
 
@@ -17,7 +38,7 @@ export const SrmOriginStory: React.FC = () => {
             
             {/* Tag */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-mono font-semibold">
-              <Sparkles className="w-3.5 h-3.5 text-white" />
+              <Zap className="w-3.5 h-3.5 text-white fill-white" />
               <span>THE ORIGIN STORY</span>
             </div>
 
@@ -33,13 +54,13 @@ export const SrmOriginStory: React.FC = () => {
                 While studying at college which was in a rural area 30km away from the city, I often had to travel from campus to the Chennai airport before holidays and semester breaks.
               </p>
               <p>
-                A solo cab could easily cost around <strong className="text-white font-semibold">₹1,000</strong>—an unreasonable expense for students to bear alone.
+                The initial Uber fare would show around ₹1,000, but drivers routinely demanded extra and overcharged—pushing the cost up to <strong className="text-white font-semibold">₹2,000</strong> for a single trip. An unreasonable expense for students to bear alone.
               </p>
               <p className="text-neutral-100 font-medium border-l-2 border-white/40 pl-4 my-3 bg-white/[0.02] py-2 rounded-r-xl">
-                The whole point was the price. We knew dozens of other students were heading to the Chennai airport around the exact same time, yet everyone was paying full fare in separate cabs simply because there was no easy way to find each other and split the cost.
+                The whole point was the price. We knew dozens of other students were heading to the Chennai airport around the exact same time, yet everyone was paying inflated fares in separate cabs simply because there was no easy way to find each other and split the cost.
               </p>
               <p>
-                By connecting students heading the exact same direction at the exact same hour, that steep <span className="text-white font-semibold">₹1,000 cab drops down to ₹300 or ₹250</span>.
+                By connecting students heading the exact same direction at the exact same hour, that steep <span className="text-white font-semibold">₹2,000 cab drops down to ₹500 to ₹650 per person</span>.
               </p>
             </div>
 
@@ -128,12 +149,13 @@ export const SrmOriginStory: React.FC = () => {
                       </div>
                       <div className="text-right">
                         <div className="text-[10px] text-neutral-400">Solo Cab Fare</div>
-                        <div className="text-sm font-bold text-white">₹1,000</div>
+                        <div className="text-sm font-bold text-white">₹2,000</div>
+                        <div className="text-[9px] text-neutral-500 font-mono">Uber ₹1k + Driver extra</div>
                       </div>
                     </div>
 
                     <div className="p-3 rounded-xl bg-neutral-900 border border-white/10 text-[11px] text-neutral-300 text-center">
-                      Multiple students nearby were leaving for the airport at 4:30 PM, but each had to pay ₹1,000 solo.
+                      Uber showed ~₹1,000, but driver overcharging pushed fares up to ₹2,000 for solo students.
                     </div>
                   </div>
                 ) : (
@@ -166,8 +188,8 @@ export const SrmOriginStory: React.FC = () => {
                       </div>
 
                       <div className="flex items-center justify-between pt-2 border-t border-white/15 text-xs">
-                        <span className="text-neutral-300">Split ₹1,000 Fare:</span>
-                        <span className="font-extrabold text-white text-sm">~₹333 / person (Save ~67%)</span>
+                        <span className="text-neutral-300">Split ₹2,000 Fare:</span>
+                        <span className="font-extrabold text-white text-sm">~₹660 / person (Save ~67%)</span>
                       </div>
                     </div>
                   </div>

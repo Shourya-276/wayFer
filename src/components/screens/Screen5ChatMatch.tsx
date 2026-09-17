@@ -1,5 +1,5 @@
 import React from 'react';
-import { Send, CheckCheck, Phone, ShieldCheck, Sparkles } from 'lucide-react';
+import { Send, CheckCheck, Phone, ShieldCheck, Zap } from 'lucide-react';
 
 export const Screen5ChatMatch: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ export const Screen5ChatMatch: React.FC = () => {
                 <ShieldCheck className="w-3 h-3 text-white" />
               </div>
               <div className="text-[9px] text-neutral-300 flex items-center gap-1 font-medium">
-                <Sparkles className="w-2.5 h-2.5" />
+                <Zap className="w-2.5 h-2.5 fill-white" />
                 <span>Match Accepted • Shared Trip</span>
               </div>
             </div>

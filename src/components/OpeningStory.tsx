@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sparkles, Compass } from 'lucide-react';
+import { Zap, Compass } from 'lucide-react';
 
 export const OpeningStory: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -206,7 +206,7 @@ export const OpeningStory: React.FC = () => {
               }}
             >
               <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 border border-white/20 backdrop-blur-xl shadow-[0_0_20px_rgba(255,255,255,0.15)]">
-                <Sparkles className="w-4 h-4 text-white" />
+                <Zap className="w-4 h-4 text-white fill-white" />
                 <span className="text-sm sm:text-base font-semibold text-neutral-200">
                   That's the problem <strong className="text-white font-black">WayFer</strong> is built around.
                 </span>

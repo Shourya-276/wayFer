@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Sparkles, Users, Navigation2, Check, RefreshCw } from 'lucide-react';
+import { Zap, Users, Navigation2, Check, RefreshCw } from 'lucide-react';
 
 export const LiveMatchSimulator: React.FC = () => {
   const [stage, setStage] = useState<0 | 1 | 2 | 3 | 4>(0);
@@ -27,7 +27,7 @@ export const LiveMatchSimulator: React.FC = () => {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-mono font-semibold mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-white" />
+            <Zap className="w-3.5 h-3.5 text-white fill-white" />
             <span>CONCEPTUAL ALGORITHM SIMULATION</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">

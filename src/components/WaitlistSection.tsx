@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import confetti from 'canvas-confetti';
-import { Sparkles, ArrowRight, CheckCircle2, Loader2, MapPin, Mail, User, Phone, Building } from 'lucide-react';
+import { Zap, ArrowRight, CheckCircle2, Loader2, MapPin, Mail, User, Phone, Building } from 'lucide-react';
 import { WaitlistFormData, WaitlistState } from '../types/waitlist';
 
 export const WaitlistSection: React.FC = () => {
@@ -92,7 +92,7 @@ export const WaitlistSection: React.FC = () => {
               </svg>
 
               <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2 px-3 py-1 rounded-full bg-black border border-white/30 text-[10px] font-mono text-white">
-                <Sparkles className="w-3 h-3 text-white" />
+                <Zap className="w-3 h-3 text-white fill-white" />
                 <span>Corridor Priority Assigned</span>
               </div>
             </div>
@@ -138,7 +138,7 @@ export const WaitlistSection: React.FC = () => {
             {/* Header */}
             <div className="text-center max-w-2xl mx-auto mb-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-mono font-semibold mb-4">
-                <Sparkles className="w-3.5 h-3.5 text-white" />
+                <Zap className="w-3.5 h-3.5 text-white fill-white" />
                 <span>EARLY ACCESS WAITLIST</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">

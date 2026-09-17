@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, Star, Sparkles, Receipt, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Star, Zap, Receipt, ArrowRight } from 'lucide-react';
 
 export const Screen8TripDone: React.FC = () => {
   return (
@@ -40,7 +40,7 @@ export const Screen8TripDone: React.FC = () => {
         {/* Highlight Savings Pill */}
         <div className="p-2 rounded-xl bg-white/10 border border-white/20 flex items-center justify-between text-[10px]">
           <div className="flex items-center gap-1 text-white font-bold">
-            <Sparkles className="w-3.5 h-3.5" />
+            <Zap className="w-3.5 h-3.5 fill-white" />
             <span>You Saved</span>
           </div>
           <span className="font-extrabold text-white">₹510</span>

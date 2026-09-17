@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserCheck, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
+import { UserCheck, Zap, ArrowRight, ShieldCheck } from 'lucide-react';
 
 export const Screen3NearbyMatches: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ export const Screen3NearbyMatches: React.FC = () => {
         <div className="flex items-center justify-between mb-3 pt-1">
           <div>
             <div className="flex items-center gap-1.5 text-white text-[10px] font-bold">
-              <Sparkles className="w-3 h-3" />
+              <Zap className="w-3 h-3 fill-white" />
               <span>3 MATCHES FOUND</span>
             </div>
             <h3 className="text-sm font-bold text-white">People Going Your Way</h3>

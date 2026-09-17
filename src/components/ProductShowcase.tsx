@@ -5,9 +5,8 @@ import {
   Calendar,
   Users,
   MessageSquare,
-  Sparkles,
+  Zap,
   Navigation,
-  Car,
   CheckCircle2,
   Bell,
   Check,
@@ -28,10 +27,11 @@ export const ProductShowcase: React.FC = () => {
   const [stepProgress, setStepProgress] = useState<number>(0);
   const [mouseTilt, setMouseTilt] = useState({ x: 0, y: 0 });
 
-  // 12 Real Scanned Product Screenshots & Authentic Journey Steps in Monochrome
+  // 11 Real Scanned Product Screenshots & Authentic Journey Steps in Monochrome
   const screens = [
     {
       id: 1,
+      screenImageId: 1,
       tabTitle: 'Map',
       title: 'Cut your travel cost in half.',
       subtitle: 'Explore live city & campus corridors',
@@ -39,12 +39,12 @@ export const ProductShowcase: React.FC = () => {
         'Launch the map to discover live travel corridors and active ride opportunities across your city before spending full fare on a solo cab.',
       icon: <MapPin className="w-3.5 h-3.5 text-white" />,
       tag: '01 • Live Corridor Map',
-      routeLabel: 'Bellandur • Kaikondrahalli • Haralur Corridor',
       featureA: 'Live Radar: Real-time commuter corridor detection.',
       featureB: 'Instant Actions: One-tap Requests & Book Ride.',
     },
     {
       id: 2,
+      screenImageId: 2,
       tabTitle: 'Where To',
       title: "Choose where you're going.",
       subtitle: 'Set origin & destination pins',
@@ -52,12 +52,12 @@ export const ProductShowcase: React.FC = () => {
         'Drop pins or type your origin and destination. WayFer calculates intersecting vector corridors along major roads and expressways.',
       icon: <Navigation className="w-3.5 h-3.5 text-neutral-300" />,
       tag: '02 • Route Selection',
-      routeLabel: 'Sarjapur (Accord Block) → Play Arena (Central Jail Rd)',
       featureA: 'Precise Gate Drops: Select residential & office gates.',
       featureB: 'Overlap Math: Matches riders travelling along the same path.',
     },
     {
       id: 3,
+      screenImageId: 3,
       tabTitle: 'Time',
       title: 'Select ride time & date.',
       subtitle: 'Smart 15-minute departure windows',
@@ -65,12 +65,12 @@ export const ProductShowcase: React.FC = () => {
         'Choose today or schedule ahead with flexible 15-minute departure slots (7:00, 7:15, 7:30, 7:45 PM) to maximize overlapping co-riders.',
       icon: <Calendar className="w-3.5 h-3.5 text-white" />,
       tag: '03 • Departure Scheduling',
-      routeLabel: 'Today, Sep 15 • 07:30 PM departure window',
       featureA: 'Scheduled Rides: Lock ahead for flights and shifts.',
       featureB: 'Flexible Sync: Automatic grouping within 15 min.',
     },
     {
       id: 4,
+      screenImageId: 4,
       tabTitle: 'Scheduled',
       title: 'Your ride is scheduled.',
       subtitle: 'Corridor matching automatically begins',
@@ -78,12 +78,12 @@ export const ProductShowcase: React.FC = () => {
         'Confirmation sheet displays your confirmed schedule: 15/9/2026 at 7:30 PM with green pickup and red destination markers connecting on the map.',
       icon: <Check className="w-3.5 h-3.5 text-white" />,
       tag: '04 • Ride Scheduled',
-      routeLabel: 'Scheduled: Haralur → Kaikondrahalli',
       featureA: 'Auto Discovery: Scans for nearby travellers.',
       featureB: 'Visual Path: Full route overview on city map.',
     },
     {
       id: 5,
+      screenImageId: 5,
       tabTitle: 'Active',
       title: '1 match found nearby.',
       subtitle: 'Live commuter radar detected along your path',
@@ -91,104 +91,92 @@ export const ProductShowcase: React.FC = () => {
         'Active ride status shows 1 match nearby with marker "A" appearing on Hosa Road. Review their path before booking a costly solo cab.',
       icon: <Users className="w-3.5 h-3.5 text-white" />,
       tag: '05 • Active Ride Radar',
-      routeLabel: 'Active ride • 1 match nearby on Hosa Road',
       featureA: 'Nearby Match: Pin A flagged with overlapping destination.',
       featureB: 'Live Controls: Instant request or cancel option.',
     },
     {
       id: 6,
+      screenImageId: 12,
+      tabTitle: 'Alert',
+      title: 'Instant push notifications.',
+      subtitle: 'Real-time alert system on mobile',
+      description:
+        'Receive instant system notifications, deep-linking straight into requests.',
+      icon: <Bell className="w-3.5 h-3.5 text-white" />,
+      tag: '06 • Push Notifications',
+      featureA: 'Instant Push: Delivered straight to notification shade.',
+      featureB: 'One-Tap Action: Deep-link straight to chat & accept.',
+    },
+    {
+      id: 7,
+      screenImageId: 6,
       tabTitle: 'Co-Rider',
       title: "Aryan's trip details.",
       subtitle: 'Complete route transparency before connecting',
       description:
         'Inspect your match: Aryan from Owners Court Layout to Silverwood Regency Apartment at 7:15 PM. Send a message request in one tap.',
       icon: <ShieldCheck className="w-3.5 h-3.5 text-neutral-300" />,
-      tag: '06 • Co-Rider Profile',
-      routeLabel: 'Aryan • Kasavanahalli → Hosa Rd (7:15 PM)',
+      tag: '07 • Co-Rider Profile',
       featureA: 'Route Transparency: Exact pickup & dropoff addresses.',
       featureB: 'Direct Request: Send message request without sharing numbers.',
     },
     {
-      id: 7,
+      id: 8,
+      screenImageId: 7,
       tabTitle: 'Requests',
       title: 'Message requests hub.',
       subtitle: 'Manage incoming & sent co-rider requests',
       description:
         'A red alert badge notifies you of incoming requests. Review Aryan: "Hey there!" with "Pending" status and coordinate instantly.',
       icon: <MessageSquare className="w-3.5 h-3.5 text-white" />,
-      tag: '07 • Message Requests',
-      routeLabel: 'Received: Aryan • "Hey there!" • Pending (6:10 PM)',
+      tag: '08 • Message Requests',
       featureA: 'Alert Badges: Red notification dot on Requests tab.',
       featureB: 'Dual Tabs: Toggle between Received & Sent requests.',
     },
     {
-      id: 8,
+      id: 9,
+      screenImageId: 8,
       tabTitle: 'Chat',
       title: 'Coordinate directly in chat.',
       subtitle: 'Arnav ✓ Matched in real time',
       description:
         'Private in-app chat lets matched riders coordinate: "Hey there!" — "Hi what time will you start?". Agree on exact pickup points without friction.',
-      icon: <Sparkles className="w-3.5 h-3.5 text-white" />,
-      tag: '08 • In-App Match Chat',
-      routeLabel: 'Chat with Arnav • ✓ Matched co-rider',
+      icon: <Zap className="w-3.5 h-3.5 text-white fill-white" />,
+      tag: '09 • In-App Match Chat',
       featureA: 'Private Chat: Zero personal phone number exposure.',
       featureB: 'Rendezvous Sync: Coordinate meeting spot before hailing.',
     },
     {
-      id: 9,
+      id: 10,
+      screenImageId: 9,
       tabTitle: 'Accepted',
       title: 'Trip accepted & underway.',
       subtitle: 'Status switches to Accepted with live trip controls',
       description:
         'Aryan\'s request updates to "Accepted" at 8:43 PM. The shared fare arrangement is locked, with prominent "End Trip" control at your fingertips.',
       icon: <Flag className="w-3.5 h-3.5 text-neutral-300" />,
-      tag: '09 • Accepted Match',
-      routeLabel: 'Aryan • Accepted (8:43 PM) • Shared fare active',
+      tag: '10 • Accepted Match',
       featureA: 'Status Sync: Real-time update to Accepted badge.',
       featureB: 'Trip Controls: Red End Trip button ready for destination.',
     },
     {
-      id: 10,
+      id: 11,
+      screenImageId: 10,
       tabTitle: 'Completed',
       title: 'The trip has ended.',
       subtitle: 'Safe arrival confirmation & verified savings',
       description:
         'Destination reached safely! "The trip has ended. Thank you for riding with us!" — complete with 50% cash saved and cleaner air delivered.',
       icon: <CheckCircle2 className="w-3.5 h-3.5 text-white" />,
-      tag: '10 • Trip Completed',
-      routeLabel: 'Trip Ended • Thank you for riding with us!',
+      tag: '11 • Trip Completed',
       featureA: 'Cost Slashed: Fair split automatically handled.',
       featureB: 'Clean Finish: No lingering links after trip conclusion.',
     },
-    {
-      id: 11,
-      tabTitle: 'Transit',
-      title: 'Active ride tracking.',
-      subtitle: 'Live highway & city progress',
-      description:
-        'Track live progress along the corridor. Every shared trip removes a vehicle from the road and halves travel expenses for both riders.',
-      icon: <Car className="w-3.5 h-3.5 text-neutral-300" />,
-      tag: '11 • En-Route Tracking',
-      routeLabel: 'Active transit along Hosa Rd corridor',
-      featureA: 'Corridor Tracking: Live location pin tracking.',
-      featureB: 'Eco Impact: Direct contribution to cleaner city air.',
-    },
-    {
-      id: 12,
-      tabTitle: 'Alert',
-      title: 'Instant push notifications.',
-      subtitle: 'Real-time alert system on mobile',
-      description:
-        'Receive instant system notifications: "WayFer • now 🔔 New ride request: Aryan wants to share a ride with you", deep-linking straight into requests.',
-      icon: <Bell className="w-3.5 h-3.5 text-white" />,
-      tag: '12 • Push Notifications',
-      routeLabel: 'Push Alert: "Aryan wants to share a ride with you"',
-      featureA: 'Instant Push: Delivered straight to notification shade.',
-      featureB: 'One-Tap Action: Deep-link straight to chat & accept.',
-    },
   ];
 
-  // Scroll-driven story progression across all 12 steps
+  const totalSteps = screens.length;
+
+  // Scroll-driven story progression across all steps
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
@@ -201,19 +189,19 @@ export const ProductShowcase: React.FC = () => {
       const rawProgress = Math.max(0, Math.min(0.9999, currentScroll / totalScrollable));
       setOverallProgress(rawProgress);
 
-      // Map scroll progress evenly across 12 steps
-      const stepIndex = Math.min(12, Math.max(1, Math.floor(rawProgress * 12) + 1));
+      // Map scroll progress evenly across steps
+      const stepIndex = Math.min(totalSteps, Math.max(1, Math.floor(rawProgress * totalSteps) + 1));
       setActiveScreen(stepIndex);
 
       // Progress within active step (0% to 100%)
-      const withinStep = (rawProgress * 12) % 1;
+      const withinStep = (rawProgress * totalSteps) % 1;
       setStepProgress(withinStep * 100);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [totalSteps]);
 
   // Smooth scroll to a specific step
   const scrollToStep = (targetStep: number) => {
@@ -222,7 +210,7 @@ export const ProductShowcase: React.FC = () => {
     const scrollTop = window.scrollY;
     const containerTop = scrollTop + rect.top;
     const totalScrollable = sectionRef.current.clientHeight - window.innerHeight;
-    const targetProgress = (targetStep - 0.5) / 12;
+    const targetProgress = (targetStep - 0.5) / totalSteps;
     const targetY = containerTop + targetProgress * totalScrollable;
     window.scrollTo({ top: targetY, behavior: 'smooth' });
   };
@@ -246,7 +234,7 @@ export const ProductShowcase: React.FC = () => {
     <section
       id="product-showcase"
       ref={sectionRef}
-      className="relative h-[560vh] bg-black border-t border-white/10"
+      className="relative h-[520vh] bg-black border-t border-white/10"
     >
       {/* Sticky Viewport Canvas - Starts cleanly below navbar with guaranteed full view */}
       <div className="sticky top-16 h-[calc(100vh-4.5rem)] w-full flex flex-col justify-center py-2 px-3 sm:px-6 lg:px-8 z-20 overflow-hidden">
@@ -260,7 +248,7 @@ export const ProductShowcase: React.FC = () => {
           <div className="flex items-center justify-between gap-3 shrink-0 pt-1">
             <div className="flex items-center gap-2 sm:gap-3">
               <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/20 text-white text-[10px] font-mono font-bold tracking-wide">
-                <Sparkles className="w-3 h-3 text-white" />
+                <Zap className="w-3 h-3 text-white fill-white" />
                 <span>REAL APP EXPERIENCE</span>
               </span>
               <h2 className="text-base sm:text-xl lg:text-2xl font-black tracking-tight text-white leading-none">
@@ -274,13 +262,13 @@ export const ProductShowcase: React.FC = () => {
                 <ArrowDown className="w-3 h-3 text-white animate-bounce" />
                 <span className="hidden md:inline text-neutral-400">Scroll to advance:</span>
                 <span className="text-white font-bold">
-                  {activeScreen < 10 ? `0${activeScreen}` : activeScreen} / 12
+                  {activeScreen < 10 ? `0${activeScreen}` : activeScreen} / {totalSteps < 10 ? `0${totalSteps}` : totalSteps}
                 </span>
               </div>
 
               <div className="flex items-center gap-0.5 bg-white/5 p-0.5 rounded-xl border border-white/10">
                 <button
-                  onClick={() => scrollToStep(activeScreen > 1 ? activeScreen - 1 : 12)}
+                  onClick={() => scrollToStep(activeScreen > 1 ? activeScreen - 1 : totalSteps)}
                   className="p-1 rounded-lg hover:bg-white/10 text-neutral-300 hover:text-white transition-colors"
                   aria-label="Previous step"
                   title="Previous Step"
@@ -288,7 +276,7 @@ export const ProductShowcase: React.FC = () => {
                   <ChevronLeft className="w-3.5 h-3.5" />
                 </button>
                 <button
-                  onClick={() => scrollToStep(activeScreen < 12 ? activeScreen + 1 : 1)}
+                  onClick={() => scrollToStep(activeScreen < totalSteps ? activeScreen + 1 : 1)}
                   className="p-1 rounded-lg hover:bg-white/10 text-neutral-300 hover:text-white transition-colors"
                   aria-label="Next step"
                   title="Next Step"
@@ -299,8 +287,8 @@ export const ProductShowcase: React.FC = () => {
             </div>
           </div>
 
-          {/* 2. Slim 12-Step Timeline Scrubber in Monochrome */}
-          <div className="grid grid-cols-6 sm:grid-cols-12 gap-1 shrink-0">
+          {/* 2. Slim 11-Step Timeline Scrubber in Monochrome */}
+          <div className="grid grid-cols-6 sm:grid-cols-11 gap-1 shrink-0">
             {screens.map((s) => {
               const isActive = s.id === activeScreen;
               const isPast = s.id < activeScreen;
@@ -372,15 +360,10 @@ export const ProductShowcase: React.FC = () => {
                     transform: `scale(${typeof window !== 'undefined' && window.innerWidth < 640 ? 0.55 : 0.60}) perspective(800px) rotateY(${mouseTilt.x}deg) rotateX(${mouseTilt.y}deg)`,
                   }}
                 >
-                  <PhoneMockup screenId={activeScreen} glow={true} />
+                  <PhoneMockup screenId={current.screenImageId || current.id} glow={true} />
                 </div>
               </div>
 
-              {/* Corridor Micro Badge */}
-              <div className="-mt-2 px-2.5 py-0.5 rounded-full bg-black/90 border border-white/15 text-[9px] sm:text-[10px] font-mono text-neutral-300 flex items-center gap-1.5 backdrop-blur-md shadow-lg shrink-0">
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-                <span className="truncate max-w-[220px]">{current.routeLabel}</span>
-              </div>
             </div>
 
             {/* Right: Story Narrator */}
@@ -393,7 +376,7 @@ export const ProductShowcase: React.FC = () => {
                   <span>{current.tag}</span>
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-mono text-neutral-400">
-                  Step {activeScreen} of 12
+                  Step {activeScreen} of {totalSteps}
                 </span>
               </div>
 
@@ -431,10 +414,10 @@ export const ProductShowcase: React.FC = () => {
               {/* Action Buttons Row */}
               <div className="pt-2 border-t border-white/10 flex items-center justify-between shrink-0">
                 <button
-                  onClick={() => scrollToStep(activeScreen < 12 ? activeScreen + 1 : 1)}
+                  onClick={() => scrollToStep(activeScreen < totalSteps ? activeScreen + 1 : 1)}
                   className="px-3 py-1.5 rounded-xl bg-white hover:bg-neutral-200 text-black text-xs font-black uppercase tracking-wider shadow-[0_0_20px_rgba(255,255,255,0.25)] transition-all flex items-center gap-1"
                 >
-                  <span>{activeScreen < 12 ? 'Next Step' : 'Restart Flow'}</span>
+                  <span>{activeScreen < totalSteps ? 'Next Step' : 'Restart Flow'}</span>
                   <ArrowRight className="w-3 h-3" />
                 </button>
 
@@ -452,7 +435,7 @@ export const ProductShowcase: React.FC = () => {
 
           {/* 4. Bottom Story Progress Strip */}
           <div className="flex items-center justify-between gap-3 text-[10px] font-mono text-neutral-400 shrink-0">
-            <span className="hidden sm:inline">Scroll down to move through all 12 app steps</span>
+            <span className="hidden sm:inline">Scroll down to move through all {totalSteps} app steps</span>
             <div className="flex-1 max-w-xs h-1 bg-white/10 rounded-full overflow-hidden">
               <div
                 className="h-full bg-white transition-all duration-150 rounded-full"

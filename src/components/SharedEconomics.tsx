@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles } from 'lucide-react';
+import { Zap } from 'lucide-react';
 
 export const SharedEconomics: React.FC = () => {
   const [riders, setRiders] = useState<1 | 2 | 3>(2);
@@ -91,7 +91,7 @@ export const SharedEconomics: React.FC = () => {
             >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs font-mono text-white font-bold">2 Riders Sharing</span>
-                <Sparkles className="w-4 h-4 text-white" />
+                <Zap className="w-4 h-4 text-white fill-white" />
               </div>
               <div className="text-3xl font-black text-white mb-1">~₹500 <span className="text-sm font-normal text-neutral-400">/ person</span></div>
               <p className="text-xs text-neutral-300">50% saved along the overlapping corridor</p>
@@ -107,7 +107,7 @@ export const SharedEconomics: React.FC = () => {
             >
               <div className="flex items-center justify-between mb-4">
                 <span className="text-xs font-mono text-white font-bold">3 Riders Sharing</span>
-                <Sparkles className="w-4 h-4 text-white" />
+                <Zap className="w-4 h-4 text-white fill-white" />
               </div>
               <div className="text-3xl font-black text-white mb-1">~₹333 <span className="text-sm font-normal text-neutral-400">/ person</span></div>
               <p className="text-xs text-neutral-300">66% saved for identical route destinations</p>

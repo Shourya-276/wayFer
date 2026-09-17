@@ -14,7 +14,7 @@ export const RouteCorridors: React.FC = () => {
     {
       title: 'HOME → OFFICE',
       origin: 'Residential Suburbs',
-      destination: 'Tech Parks & CBD',
+      destination: 'Tech Parks',
       icon: <Briefcase className="w-5 h-5 text-white" />,
       tag: 'Daily Rush Hours',
       description: 'Avoid solo cab surges by matching with colleagues and neighbours on identical commutes.',
