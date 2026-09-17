@@ -298,7 +298,7 @@ export const WaitlistSection: React.FC = () => {
                     <input
                       type="text"
                       autoFocus
-                      placeholder="Please specify your organization"
+                      placeholder=""
                       value={customOrg}
                       onChange={(e) => {
                         const val = e.target.value;
