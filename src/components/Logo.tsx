@@ -8,19 +8,19 @@ interface LogoProps {
 
 export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', showText = true }) => {
   const imageSizes = {
-    sm: 'h-8 w-auto',
-    md: 'h-10 w-auto',
-    lg: 'h-14 w-auto',
+    sm: 'h-9 w-auto',
+    md: 'h-11 sm:h-12 w-auto',
+    lg: 'h-16 sm:h-20 w-auto',
   };
 
   const textSizes = {
-    sm: 'text-lg',
-    md: 'text-2xl',
-    lg: 'text-3xl',
+    sm: 'text-xl',
+    md: 'text-2xl sm:text-[1.75rem]',
+    lg: 'text-3xl sm:text-4xl',
   };
 
   return (
-    <div className={`flex items-center gap-3 select-none ${className}`}>
+    <div className={`flex items-center gap-3.5 select-none ${className}`}>
       {/* Official WayFer Logo in Monochrome */}
       <div className="relative flex items-center justify-center group shrink-0">
         {/* Sleek Monochrome Backglow */}
