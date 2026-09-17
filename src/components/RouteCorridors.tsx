@@ -38,11 +38,11 @@ export const RouteCorridors: React.FC = () => {
   ];
 
   return (
-    <section id="why-wayfer" className="relative py-28 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
+    <section id="why-wayfer" className="relative py-10 sm:py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         
         {/* Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-6 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-mono font-semibold mb-4">
             <span>PEOPLE & ROUTES</span>
           </div>
@@ -93,7 +93,7 @@ export const RouteCorridors: React.FC = () => {
 
               {/* Route line visual in card */}
               <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-[10px] font-mono text-neutral-400">
-                <span>Direct match algorithm</span>
+                <span>Smart match algorithm</span>
                 <span className="text-white group-hover:underline flex items-center gap-1 font-semibold">
                   Active Corridor
                   <span className="w-1.5 h-1.5 rounded-full bg-white"></span>

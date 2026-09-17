@@ -26,7 +26,7 @@ export const SrmOriginStory: React.FC = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} id="the-story" className="relative py-28 px-4 sm:px-6 lg:px-8 bg-black border-y border-white/10 overflow-hidden">
+    <section ref={sectionRef} id="the-story" className="relative py-10 sm:py-20 px-4 sm:px-6 lg:px-8 bg-black border-y border-white/10 overflow-hidden">
       {/* Subtle Background map contour glow in Monochrome */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 bg-white/[0.03] blur-[120px] rounded-full pointer-events-none"></div>
 
@@ -51,13 +51,13 @@ export const SrmOriginStory: React.FC = () => {
             {/* Authentic personal story text */}
             <div className="space-y-4 text-base sm:text-lg text-neutral-300 leading-relaxed font-normal">
               <p>
-                While studying at college which was in a rural area 30km away from the city, I often had to travel from campus to the Chennai airport before holidays and semester breaks.
+                While studying at college which was in a rural area 30km away from the city, I often had to travel from campus to the airport before holidays and semester breaks.
               </p>
               <p>
                 The initial Uber fare would show around ₹1,000, but drivers routinely demanded extra and overcharged—pushing the cost up to <strong className="text-white font-semibold">₹2,000</strong> for a single trip. An unreasonable expense for students to bear alone.
               </p>
               <p className="text-neutral-100 font-medium border-l-2 border-white/40 pl-4 my-3 bg-white/[0.02] py-2 rounded-r-xl">
-                The whole point was the price. We knew dozens of other students were heading to the Chennai airport around the exact same time, yet everyone was paying inflated fares in separate cabs simply because there was no easy way to find each other and split the cost.
+                The whole point was the price. We knew dozens of other students were heading to the airport around the exact same time, yet everyone was paying inflated fares in separate cabs simply because there was no easy way to find each other and split the cost.
               </p>
               <p>
                 By connecting students heading the exact same direction at the exact same hour, that steep <span className="text-white font-semibold">₹2,000 cab drops down to ₹500 to ₹650 per person</span>.
@@ -119,7 +119,7 @@ export const SrmOriginStory: React.FC = () => {
                   </div>
                   <div>
                     <span className="text-[10px] uppercase tracking-wider text-white font-bold">Destination</span>
-                    <div className="font-bold text-white text-sm">Chennai International Airport (MAA)</div>
+                    <div className="font-bold text-white text-sm">Airport Terminal</div>
                   </div>
                 </div>
 

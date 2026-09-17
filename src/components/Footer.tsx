@@ -2,15 +2,11 @@ import React from 'react';
 import { Logo } from './Logo';
 import { Twitter, Instagram, Linkedin, Github } from 'lucide-react';
 
-interface FooterProps {
-  onAdminClick?: () => void;
-}
-
-export const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
+export const Footer: React.FC = () => {
   return (
-    <footer className="bg-black border-t border-white/5 py-16 px-4 sm:px-6 lg:px-8 text-neutral-400 text-xs">
+    <footer className="bg-black border-t border-white/5 py-8 sm:py-12 px-4 sm:px-6 lg:px-8 text-neutral-400 text-xs">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-12 border-b border-white/5">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 pb-8 border-b border-white/5">
           
           {/* Logo & Philosophy Tagline */}
           <div className="space-y-3">
@@ -31,12 +27,6 @@ export const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
             <a href="#the-story" className="hover:text-white transition-colors">The Story</a>
             <a href="#product-showcase" className="hover:text-white transition-colors">App Preview</a>
             <a href="#waitlist" className="hover:text-white transition-colors">Waitlist</a>
-            <button
-              onClick={onAdminClick || (() => window.location.href = '/admin')}
-              className="hover:text-white text-neutral-400 hover:underline transition-colors font-mono"
-            >
-              /admin
-            </button>
             <a href="#privacy" className="hover:text-white transition-colors">Privacy</a>
             <a href="#terms" className="hover:text-white transition-colors">Terms</a>
           </div>

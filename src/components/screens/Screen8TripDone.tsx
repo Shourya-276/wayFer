@@ -13,7 +13,7 @@ export const Screen8TripDone: React.FC = () => {
           Journey Completed
         </span>
         <h3 className="text-base font-extrabold text-white mt-1">You Arrived!</h3>
-        <p className="text-[10px] text-neutral-400">Chennai International Airport (MAA)</p>
+        <p className="text-[10px] text-neutral-400">Airport Terminal</p>
       </div>
 
       {/* Economics & Fare Split Card */}

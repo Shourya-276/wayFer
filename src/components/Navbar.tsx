@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Logo } from './Logo';
 import { Menu, X, ArrowRight } from 'lucide-react';
 
-interface NavbarProps {
-  onAdminClick?: () => void;
-}
-
-export const Navbar: React.FC<NavbarProps> = ({ onAdminClick }) => {
+export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -93,18 +89,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onAdminClick }) => {
                 <ArrowRight className="w-4 h-4 text-neutral-600" />
               </a>
             ))}
-            {onAdminClick && (
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onAdminClick();
-                }}
-                className="text-neutral-400 hover:text-white transition-colors py-2 border-b border-white/5 flex items-center justify-between text-left font-mono text-sm"
-              >
-                <span>/admin (Admin Console)</span>
-                <ArrowRight className="w-4 h-4 text-neutral-600" />
-              </button>
-            )}
             <a
               href="#waitlist"
               onClick={() => setMobileMenuOpen(false)}

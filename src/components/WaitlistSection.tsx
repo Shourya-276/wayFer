@@ -53,7 +53,7 @@ export const WaitlistSection: React.FC = () => {
   };
 
   return (
-    <section id="waitlist" className="relative py-32 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10 overflow-hidden">
+    <section id="waitlist" className="relative py-10 sm:py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/10 overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-white/[0.03] blur-[150px] rounded-full pointer-events-none"></div>
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 export const CoreInsight: React.FC = () => {
   return (
-    <section className="relative py-36 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden flex items-center justify-center min-h-[70vh]">
+    <section className="relative py-10 sm:py-20 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden flex items-center justify-center">
       {/* Subtle moving route lines behind the typography in Monochrome */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <svg className="w-full h-full" viewBox="0 0 1200 600" fill="none">
@@ -30,7 +30,7 @@ export const CoreInsight: React.FC = () => {
         </svg>
       </div>
 
-      <div className="max-w-5xl mx-auto text-center relative z-10 space-y-12">
+      <div className="max-w-5xl mx-auto text-center relative z-10 space-y-6 sm:space-y-8">
         
         {/* Statement 1 */}
         <p className="text-2xl sm:text-4xl lg:text-5xl font-light text-neutral-400 tracking-tight">

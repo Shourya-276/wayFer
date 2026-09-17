@@ -21,46 +21,46 @@ export const LiveMatchSimulator: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-28 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section className="relative py-10 sm:py-20 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white text-xs font-mono font-semibold mb-4">
             <Zap className="w-3.5 h-3.5 text-white fill-white" />
             <span>CONCEPTUAL ALGORITHM SIMULATION</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
+          <h2 className="text-2xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
             See who's <span className="text-white drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">going your way</span>.
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-neutral-300">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-neutral-300">
             WayFer’s proximity logic evaluates trip origins, travel vectors, and destination proximity to find natural travel matches.
           </p>
         </div>
 
         {/* Map Simulation Interactive Container */}
-        <div className="rounded-3xl bg-[#0A0A0A] border border-white/15 p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+        <div className="rounded-2xl sm:rounded-3xl bg-[#0A0A0A] border border-white/15 p-4 sm:p-10 shadow-2xl relative overflow-hidden">
           
           {/* Top Status Strip */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-6 border-b border-white/10 mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white font-bold text-xs">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 pb-4 sm:pb-6 border-b border-white/10 mb-4 sm:mb-8">
+            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-white font-bold text-xs shrink-0 mt-0.5 sm:mt-0">
                 A+C
               </div>
-              <div>
-                <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider font-semibold">
+              <div className="min-w-0 flex-1">
+                <span className="text-[9px] sm:text-[10px] font-mono text-neutral-400 uppercase tracking-wider font-semibold block">
                   Status: {stageLabels[stage].label}
                 </span>
-                <div className="text-sm font-bold text-white">{stageLabels[stage].desc}</div>
+                <div className="text-xs sm:text-sm font-bold text-white leading-snug break-words">{stageLabels[stage].desc}</div>
               </div>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 self-end sm:self-auto">
               <button
                 onClick={() => setStage(0)}
-                className="px-3 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-neutral-300 border border-white/10 text-xs font-mono flex items-center gap-1.5 transition-colors"
+                className="px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/10 text-neutral-300 border border-white/10 text-[11px] sm:text-xs font-mono flex items-center gap-1.5 transition-colors"
               >
-                <RefreshCw className="w-3.5 h-3.5" />
+                <RefreshCw className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 Reset Sim
               </button>
             </div>
@@ -172,55 +172,57 @@ export const LiveMatchSimulator: React.FC = () => {
             </svg>
 
             {/* Central Animated Badge based on Stage */}
-            <div className="absolute z-20 transition-all duration-300 transform scale-100">
+            <div className="absolute z-20 transition-all duration-300 transform scale-100 max-w-[90%] text-center">
               {stage === 1 && (
-                <div className="px-4 py-2 rounded-2xl bg-black/90 border border-white/40 text-white font-bold text-xs shadow-2xl flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-white animate-ping"></span>
-                  Possible match detected (A + C)
+                <div className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl sm:rounded-2xl bg-black/90 border border-white/40 text-white font-bold text-[10px] sm:text-xs shadow-2xl flex items-center justify-center gap-1.5 sm:gap-2">
+                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white animate-ping"></span>
+                  <span className="truncate">Possible match detected (A + C)</span>
                 </div>
               )}
 
               {stage === 2 && (
-                <div className="px-5 py-2.5 rounded-2xl bg-black/90 border border-white/50 text-white font-bold text-xs shadow-2xl flex items-center gap-2">
-                  <Navigation2 className="w-3.5 h-3.5 text-white" />
-                  Same direction • 94% alignment
+                <div className="px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-black/90 border border-white/50 text-white font-bold text-[10px] sm:text-xs shadow-2xl flex items-center justify-center gap-1.5 sm:gap-2">
+                  <Navigation2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white shrink-0" />
+                  <span>Same direction • 94% alignment</span>
                 </div>
               )}
 
               {stage === 3 && (
-                <div className="px-5 py-2.5 rounded-2xl bg-neutral-900 border border-white text-white font-extrabold text-xs uppercase tracking-wider shadow-2xl flex items-center gap-2">
-                  <Users className="w-4 h-4 text-white" />
-                  Ready to Connect
+                <div className="px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-xl sm:rounded-2xl bg-neutral-900 border border-white text-white font-extrabold text-[10px] sm:text-xs uppercase tracking-wider shadow-2xl flex items-center justify-center gap-1.5 sm:gap-2">
+                  <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" />
+                  <span>Ready to Connect</span>
                 </div>
               )}
 
               {stage === 4 && (
-                <div className="px-6 py-3 rounded-full bg-white text-black font-black text-sm uppercase tracking-widest shadow-[0_0_25px_rgba(255,255,255,0.3)] flex items-center gap-2 animate-bounce">
-                  <Check className="w-4 h-4 stroke-[3]" />
-                  MATCHED
+                <div className="px-4 py-2 sm:px-6 sm:py-3 rounded-full bg-white text-black font-black text-xs sm:text-sm uppercase tracking-widest shadow-[0_0_25px_rgba(255,255,255,0.3)] flex items-center justify-center gap-1.5 sm:gap-2 animate-bounce">
+                  <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3]" />
+                  <span>MATCHED</span>
                 </div>
               )}
             </div>
 
             {/* Bottom Disclaimer */}
-            <span className="absolute bottom-2 right-4 text-[9px] font-mono text-neutral-500">
+            <span className="absolute bottom-1.5 sm:bottom-2 right-2 sm:right-4 text-[8px] sm:text-[9px] font-mono text-neutral-500 truncate max-w-[85%]">
               *Visual simulation of WayFer's corridor proximity logic
             </span>
           </div>
 
           {/* Stepper Timeline */}
-          <div className="grid grid-cols-5 gap-2 mt-6">
+          <div className="grid grid-cols-5 gap-1 sm:gap-2 mt-3 sm:mt-6">
             {stageLabels.map((s, idx) => (
               <button
                 key={s.label}
                 onClick={() => setStage(idx as 0 | 1 | 2 | 3 | 4)}
-                className={`p-2.5 rounded-xl border text-center transition-all ${
+                className={`p-1 sm:p-2.5 rounded-lg sm:rounded-xl border text-center transition-all flex flex-col items-center justify-center min-h-[42px] sm:min-h-0 ${
                   stage === idx
                     ? 'bg-white/15 border-white/60 text-white font-bold'
                     : 'bg-white/5 border-white/5 text-neutral-400 hover:text-white'
                 }`}
               >
-                <div className="text-[10px] font-mono uppercase tracking-wider">{s.label}</div>
+                <div className="text-[7.5px] xs:text-[8.5px] sm:text-[10px] font-mono uppercase tracking-tight sm:tracking-wider leading-tight break-words max-w-full">
+                  {s.label}
+                </div>
               </button>
             ))}
           </div>

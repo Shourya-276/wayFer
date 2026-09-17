@@ -36,7 +36,7 @@ export const ProductShowcase: React.FC = () => {
       title: 'Cut your travel cost in half.',
       subtitle: 'Explore live city & campus corridors',
       description:
-        'Launch the map to discover live travel corridors and active ride opportunities across your city before spending full fare on a solo cab.',
+        'Open the app to discover live travel corridors and active ride opportunities across your city before spending full fare on a solo cab.',
       icon: <MapPin className="w-3.5 h-3.5 text-white" />,
       tag: '01 • Live Corridor Map',
       featureA: 'Live Radar: Real-time commuter corridor detection.',
@@ -45,15 +45,15 @@ export const ProductShowcase: React.FC = () => {
     {
       id: 2,
       screenImageId: 2,
-      tabTitle: 'Where To',
-      title: "Choose where you're going.",
-      subtitle: 'Set origin & destination pins',
+      tabTitle: 'Book Ride',
+      title: 'Smart book rides in seconds.',
+      subtitle: 'Set origin, destination & initiate smart route matching',
       description:
-        'Drop pins or type your origin and destination. WayFer calculates intersecting vector corridors along major roads and expressways.',
+        "Enter your pickup and dropoff points with precise gate drops. Tap 'Book Ride' to trigger WayFer's smart algorithm, which maps intersecting corridor vectors to find riders heading the exact same way.",
       icon: <Navigation className="w-3.5 h-3.5 text-neutral-300" />,
-      tag: '02 • Route Selection',
-      featureA: 'Precise Gate Drops: Select residential & office gates.',
-      featureB: 'Overlap Math: Matches riders travelling along the same path.',
+      tag: '02 • Smart Book Rides',
+      featureA: "Smart Booking: Instant one-tap 'Book Ride' to activate matching.",
+      featureB: 'Gate Precision: Exact residential, campus, & tech park drop points.',
     },
     {
       id: 3,
@@ -65,7 +65,7 @@ export const ProductShowcase: React.FC = () => {
         'Choose today or schedule ahead with flexible 15-minute departure slots (7:00, 7:15, 7:30, 7:45 PM) to maximize overlapping co-riders.',
       icon: <Calendar className="w-3.5 h-3.5 text-white" />,
       tag: '03 • Departure Scheduling',
-      featureA: 'Scheduled Rides: Lock ahead for flights and shifts.',
+      featureA: 'Scheduled Rides: Lock ahead for future travels.',
       featureB: 'Flexible Sync: Automatic grouping within 15 min.',
     },
     {
@@ -75,7 +75,7 @@ export const ProductShowcase: React.FC = () => {
       title: 'Your ride is scheduled.',
       subtitle: 'Corridor matching automatically begins',
       description:
-        'Confirmation sheet displays your confirmed schedule: 15/9/2026 at 7:30 PM with green pickup and red destination markers connecting on the map.',
+        'Confirmation sheet displays your confirmed schedule (for example: 15/9/2026 at 7:30 PM) with green pickup and red destination markers connecting on the map.',
       icon: <Check className="w-3.5 h-3.5 text-white" />,
       tag: '04 • Ride Scheduled',
       featureA: 'Auto Discovery: Scans for nearby travellers.',
@@ -88,10 +88,10 @@ export const ProductShowcase: React.FC = () => {
       title: '1 match found nearby.',
       subtitle: 'Live commuter radar detected along your path',
       description:
-        'Active ride status shows 1 match nearby with marker "A" appearing on Hosa Road. Review their path before booking a costly solo cab.',
+        'Active ride status shows 1 match nearby with a marker showing the co-rider\'s initial appearing on Hosa Road. Review their path before booking a costly solo cab.',
       icon: <Users className="w-3.5 h-3.5 text-white" />,
       tag: '05 • Active Ride Radar',
-      featureA: 'Nearby Match: Pin A flagged with overlapping destination.',
+      featureA: 'Waypoint Radar: Co-rider waypoints flagged along active riding routes.',
       featureB: 'Live Controls: Instant request or cancel option.',
     },
     {
@@ -111,10 +111,10 @@ export const ProductShowcase: React.FC = () => {
       id: 7,
       screenImageId: 6,
       tabTitle: 'Co-Rider',
-      title: "Aryan's trip details.",
+      title: 'Co-rider trip details.',
       subtitle: 'Complete route transparency before connecting',
       description:
-        'Inspect your match: Aryan from Owners Court Layout to Silverwood Regency Apartment at 7:15 PM. Send a message request in one tap.',
+        "Inspect your matched co-rider's route from Owners Court Layout to Silverwood Regency Apartment at 7:15 PM. Send a message request in one tap.",
       icon: <ShieldCheck className="w-3.5 h-3.5 text-neutral-300" />,
       tag: '07 • Co-Rider Profile',
       featureA: 'Route Transparency: Exact pickup & dropoff addresses.',
@@ -127,7 +127,7 @@ export const ProductShowcase: React.FC = () => {
       title: 'Message requests hub.',
       subtitle: 'Manage incoming & sent co-rider requests',
       description:
-        'A red alert badge notifies you of incoming requests. Review Aryan: "Hey there!" with "Pending" status and coordinate instantly.',
+        'A red alert badge notifies you of incoming requests to review and coordinate departures seamlessly.',
       icon: <MessageSquare className="w-3.5 h-3.5 text-white" />,
       tag: '08 • Message Requests',
       featureA: 'Alert Badges: Red notification dot on Requests tab.',
@@ -138,9 +138,9 @@ export const ProductShowcase: React.FC = () => {
       screenImageId: 8,
       tabTitle: 'Chat',
       title: 'Coordinate directly in chat.',
-      subtitle: 'Arnav ✓ Matched in real time',
+      subtitle: 'Co-rider ✓ Matched in real time',
       description:
-        'Private in-app chat lets matched riders coordinate: "Hey there!" — "Hi what time will you start?". Agree on exact pickup points without friction.',
+        'Private in-app chat lets matched riders coordinate and agree on exact pickup points without friction.',
       icon: <Zap className="w-3.5 h-3.5 text-white fill-white" />,
       tag: '09 • In-App Match Chat',
       featureA: 'Private Chat: Zero personal phone number exposure.',
@@ -153,7 +153,7 @@ export const ProductShowcase: React.FC = () => {
       title: 'Trip accepted & underway.',
       subtitle: 'Status switches to Accepted with live trip controls',
       description:
-        'Aryan\'s request updates to "Accepted" at 8:43 PM. The shared fare arrangement is locked, with prominent "End Trip" control at your fingertips.',
+        'Your co-rider\'s request updates to "Accepted" at 8:43 PM. The shared fare arrangement is locked, with prominent "End Trip" control at your fingertips.',
       icon: <Flag className="w-3.5 h-3.5 text-neutral-300" />,
       tag: '10 • Accepted Match',
       featureA: 'Status Sync: Real-time update to Accepted badge.',
@@ -169,8 +169,8 @@ export const ProductShowcase: React.FC = () => {
         'Destination reached safely! "The trip has ended. Thank you for riding with us!" — complete with 50% cash saved and cleaner air delivered.',
       icon: <CheckCircle2 className="w-3.5 h-3.5 text-white" />,
       tag: '11 • Trip Completed',
-      featureA: 'Cost Slashed: Fair split automatically handled.',
-      featureB: 'Clean Finish: No lingering links after trip conclusion.',
+      featureA: 'Chat Auto-Deletion: In-app chats are permanently removed and deleted for both users once the trip ends successfully.',
+      featureB: 'Total Post-Trip Privacy: Zero lingering messages or contact traces remain on either device.',
     },
   ];
 

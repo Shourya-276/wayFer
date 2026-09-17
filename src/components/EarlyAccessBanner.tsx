@@ -3,9 +3,9 @@ import { ArrowRight, Compass } from 'lucide-react';
 
 export const EarlyAccessBanner: React.FC = () => {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/5 relative overflow-hidden">
+    <section className="py-6 sm:py-12 px-4 sm:px-6 lg:px-8 bg-black border-t border-white/5 relative overflow-hidden">
       <div className="max-w-5xl mx-auto">
-        <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-[#141414] via-[#0A0A0A] to-black border border-white/20 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 shadow-[0_0_40px_rgba(255,255,255,0.06)]">
+        <div className="p-5 sm:p-12 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#141414] via-[#0A0A0A] to-black border border-white/20 relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 shadow-[0_0_40px_rgba(255,255,255,0.06)]">
           
           <div className="space-y-3 text-center md:text-left max-w-xl">
             <span className="text-xs font-mono uppercase tracking-widest text-neutral-400 font-bold flex items-center justify-center md:justify-start gap-1.5">

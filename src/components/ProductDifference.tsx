@@ -17,28 +17,28 @@ export const ProductDifference: React.FC = () => {
   ];
 
   return (
-    <section className="relative py-28 px-4 sm:px-6 lg:px-8 bg-dark-900 border-t border-white/5">
+    <section className="relative py-10 sm:py-20 px-4 sm:px-6 lg:px-8 bg-dark-900 border-t border-white/5">
       <div className="max-w-6xl mx-auto">
         
         {/* Header */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-3xl mb-6 sm:mb-12">
           <span className="text-xs font-mono font-semibold uppercase tracking-widest text-neutral-400">
             DESIGN PHILOSOPHY
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mt-2">
+          <h2 className="text-2xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight mt-2">
             Sharing a ride shouldn't feel like <br />
             <span className="text-neutral-500">solving a puzzle.</span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-neutral-300 font-normal">
+          <p className="mt-3 sm:mt-4 text-sm sm:text-lg text-neutral-300 font-normal">
             We wanted the experience to feel completely natural.
           </p>
         </div>
 
         {/* Comparison Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
           
           {/* Traditional Complex Experiences */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-[#0A0A0A] border border-white/10 space-y-6 opacity-75 hover:opacity-95 transition-opacity">
+          <div className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl bg-[#0A0A0A] border border-white/10 space-y-5 sm:space-y-6 opacity-75 hover:opacity-95 transition-opacity">
             <div>
               <span className="text-xs font-mono uppercase tracking-widest text-neutral-400 font-bold">
                 CONVENTIONAL EXPERIENCES
@@ -63,7 +63,7 @@ export const ProductDifference: React.FC = () => {
           </div>
 
           {/* WayFer Experience */}
-          <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-b from-[#141414] to-[#080808] border border-white/30 shadow-[0_0_30px_rgba(255,255,255,0.08)] space-y-6 relative overflow-hidden">
+          <div className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl bg-gradient-to-b from-[#141414] to-[#080808] border border-white/30 shadow-[0_0_30px_rgba(255,255,255,0.08)] space-y-5 sm:space-y-6 relative overflow-hidden">
             {/* Top right decorative glow */}
             <div className="absolute top-0 right-0 w-36 h-36 bg-white/5 rounded-full blur-2xl"></div>
 

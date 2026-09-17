@@ -53,7 +53,7 @@ export const Screen1Destination: React.FC = () => {
             <MapPin className="w-3.5 h-3.5 text-white shrink-0" />
             <div className="flex-1 truncate">
               <div className="text-[9px] uppercase tracking-wider text-white font-semibold">Destination</div>
-              <div className="text-white font-semibold truncate text-[11px]">Chennai Int'l Airport (MAA)</div>
+              <div className="text-white font-semibold truncate text-[11px]">Airport Terminal</div>
             </div>
           </div>
         </div>

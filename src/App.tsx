@@ -42,7 +42,7 @@ export const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-black text-neutral-100 font-sans selection:bg-white selection:text-black">
       {/* Navigation Header */}
-      <Navbar onAdminClick={() => navigateTo('/admin')} />
+      <Navbar />
 
       {/* Main Content Sections in Cinematic Storyboard Order */}
       <main>
@@ -84,7 +84,7 @@ export const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <Footer onAdminClick={() => navigateTo('/admin')} />
+      <Footer />
     </div>
   );
 };

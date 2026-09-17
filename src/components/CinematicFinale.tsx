@@ -16,7 +16,7 @@ export const CinematicFinale: React.FC = () => {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] py-32 px-4 sm:px-6 lg:px-8 bg-black flex flex-col justify-center items-center text-center overflow-hidden border-t border-white/10">
+    <section className="relative min-h-[50vh] py-10 sm:py-20 px-4 sm:px-6 lg:px-8 bg-black flex flex-col justify-center items-center text-center overflow-hidden border-t border-white/10">
       {/* Fullscreen Dark Cinematic Map Canvas Background in Monochrome */}
       <div className="absolute inset-0 opacity-25 pointer-events-none">
         <svg className="w-full h-full" viewBox="0 0 1200 800" fill="none">

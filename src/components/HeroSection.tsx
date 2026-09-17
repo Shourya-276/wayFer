@@ -24,10 +24,10 @@ interface CorridorData {
 const CORRIDORS: CorridorData[] = [
   {
     id: 'airport',
-    name: 'Chennai Airport',
-    shortName: 'Chennai Airport',
+    name: 'Airport',
+    shortName: 'Airport',
     icon: 'plane',
-    ticker: 'Campus (30km out) → Chennai Airport (₹2,000 Solo Cab)',
+    ticker: 'Campus (30km out) → Airport (₹2,000 Solo Cab)',
     beacon: { x: 230, y: 70 },
     mainArterial: 'M70 370 C 120 300, 170 200, 230 70',
     routes: [
@@ -41,7 +41,7 @@ const CORRIDORS: CorridorData[] = [
       { x: 310, y: 320 },
     ],
     scanText: 'Scanning Airport corridors...',
-    matchQuote: "You're going to Chennai Airport.",
+    matchQuote: "You're going to the Airport.",
     overlapPercentage: '96% Route Overlap',
   },
   {
@@ -69,67 +69,46 @@ const CORRIDORS: CorridorData[] = [
 ];
 
 export const HeroSection: React.FC = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
   const [activeCorridorIndex, setActiveCorridorIndex] = useState<number>(0);
   const [matchPhase, setMatchPhase] = useState<0 | 1 | 2 | 3>(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Cycle the match convergence narrative in the hero visual
+  // Automated animation loop: cycles through match stages, then smoothly transitions to the next corridor in loop
+  const startAnimationLoop = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+
+    timerRef.current = setInterval(() => {
+      setMatchPhase((prevPhase) => {
+        if (prevPhase === 3) {
+          setActiveCorridorIndex((prevIdx) => (prevIdx + 1) % CORRIDORS.length);
+          return 0;
+        }
+        return ((prevPhase + 1) % 4) as 0 | 1 | 2 | 3;
+      });
+    }, 2800);
+  };
+
   useEffect(() => {
-    const interval = setInterval(() => {
-      setMatchPhase((prev) => ((prev + 1) % 4) as 0 | 1 | 2 | 3);
-    }, 3600);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Listen to scroll position: when scrolling down through the hero section, switch between Chennai Airport and Tech Park
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
-      const rect = sectionRef.current.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      const totalScrollable = rect.height - windowHeight;
-      if (totalScrollable <= 0) return;
-
-      const currentScroll = -rect.top;
-      const progress = Math.max(0, Math.min(1, currentScroll / totalScrollable));
-
-      if (progress >= 0.3) {
-        setActiveCorridorIndex(1);
-      } else {
-        setActiveCorridorIndex(0);
+    startAnimationLoop();
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
       }
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleCorridorSelect = (index: number) => {
     setActiveCorridorIndex(index);
-    if (sectionRef.current) {
-      const rect = sectionRef.current.getBoundingClientRect();
-      const scrollTop = window.scrollY;
-      const totalScrollable = sectionRef.current.clientHeight - window.innerHeight;
-      if (totalScrollable > 0) {
-        const targetScroll =
-          index === 0
-            ? scrollTop + rect.top
-            : scrollTop + rect.top + totalScrollable * 0.45;
-        window.scrollTo({ top: targetScroll, behavior: 'smooth' });
-      }
-    }
+    setMatchPhase(0);
+    startAnimationLoop();
   };
 
   const activeCorridor = CORRIDORS[activeCorridorIndex];
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative h-[180vh] bg-black"
-    >
-      {/* Sticky Full-Viewport Hero Experience */}
-      <div className="sticky top-0 min-h-screen pt-20 sm:pt-24 lg:pt-28 pb-8 px-4 sm:px-6 lg:px-8 flex flex-col justify-center overflow-hidden bg-black">
+    <section className="relative pt-20 sm:pt-28 pb-8 sm:pb-12 px-4 sm:px-6 lg:px-8 flex flex-col justify-center overflow-hidden bg-black">
         {/* Cinematic Ambient Glow & Grid Background */}
         <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none"></div>
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[420px] bg-white/[0.04] blur-[140px] rounded-full pointer-events-none"></div>
@@ -321,17 +300,16 @@ export const HeroSection: React.FC = () => {
                 <span className="truncate">{activeCorridor.ticker}</span>
               </div>
 
-              {/* Scroll Indicator Cue */}
-              <div className="mt-2 flex items-center justify-center gap-1.5 text-[10px] font-mono text-neutral-500">
-                <span>Scroll down to switch corridor</span>
-                <span className="text-white animate-bounce">↓</span>
+              {/* Automated flow status indicator */}
+              <div className="mt-2 flex items-center justify-center gap-2 text-[10px] font-mono text-neutral-500">
+                <span className="w-1.5 h-1.5 rounded-full bg-white/80 animate-pulse"></span>
+                <span>Live Route Simulation • Automated Flow</span>
               </div>
 
             </div>
 
           </div>
         </div>
-      </div>
     </section>
   );
 };

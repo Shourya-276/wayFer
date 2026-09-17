@@ -36,7 +36,7 @@ export const Screen4MessageRequest: React.FC = () => {
         <div className="bg-[#121212] rounded-xl p-2.5 border border-white/10 space-y-2 mb-3">
           <div className="flex items-center gap-2 text-[10px] text-neutral-300">
             <MapPin className="w-3 h-3 text-white shrink-0" />
-            <span className="truncate">SRM Potheri Gate → Chennai Airport T1</span>
+            <span className="truncate">Campus Gate → Airport Terminal</span>
           </div>
           <div className="flex items-center gap-2 text-[10px] text-neutral-300">
             <Clock className="w-3 h-3 text-neutral-400 shrink-0" />
@@ -51,7 +51,7 @@ export const Screen4MessageRequest: React.FC = () => {
             <span className="text-[9px] text-neutral-500">Preset active</span>
           </div>
           <div className="p-2.5 rounded-xl bg-white/5 border border-white/20 text-[10px] text-neutral-200 leading-relaxed relative">
-            "Hey Rahul! I'm also heading to Chennai Airport around 4:35 PM from SRM. Want to pool together and share the cab fare?"
+            "Hey Rahul! I'm also heading to the Airport around 4:35 PM from campus. Want to pool together and share the cab fare?"
           </div>
           {/* Quick chips */}
           <div className="flex flex-wrap gap-1 mt-1">
