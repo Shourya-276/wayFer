@@ -49,7 +49,7 @@ const CORRIDORS: CorridorData[] = [
     name: 'Tech Park',
     shortName: 'Tech Park',
     icon: 'building',
-    ticker: 'Residential Gates → Tech Park (₹450 Solo Cab)',
+    ticker: 'Residential Gates → Tech Park (₹800 Solo Cab)',
     beacon: { x: 160, y: 75 },
     mainArterial: 'M330 370 C 270 280, 210 180, 160 75',
     routes: [
