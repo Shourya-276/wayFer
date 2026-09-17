@@ -34,12 +34,12 @@ export const ProductShowcase: React.FC = () => {
       screenImageId: 1,
       tabTitle: 'Map',
       title: 'Cut your travel cost in half.',
-      subtitle: 'Explore live city & campus corridors',
+      subtitle: 'Explore live city & campus routes',
       description:
-        'Open the app to discover live travel corridors and active ride opportunities across your city before spending full fare on a solo cab.',
+        'Open the app to discover live travel routes and active ride opportunities across your city before spending full fare on a solo cab.',
       icon: <MapPin className="w-3.5 h-3.5 text-white" />,
-      tag: '01 • Live Corridor Map',
-      featureA: 'Live Radar: Real-time commuter corridor detection.',
+      tag: '01 • Live Route Map',
+      featureA: 'Live Radar: Real-time commuter route detection.',
       featureB: 'Instant Actions: One-tap Requests & Book Ride.',
     },
     {
@@ -73,7 +73,7 @@ export const ProductShowcase: React.FC = () => {
       screenImageId: 4,
       tabTitle: 'Scheduled',
       title: 'Your ride is scheduled.',
-      subtitle: 'Corridor matching automatically begins',
+      subtitle: 'Route matching automatically begins',
       description:
         'Confirmation sheet displays your confirmed schedule (for example: 15/9/2026 at 7:30 PM) with green pickup and red destination markers connecting on the map.',
       icon: <Check className="w-3.5 h-3.5 text-white" />,

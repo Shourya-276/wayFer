@@ -11,6 +11,7 @@ import { WaitlistSection } from './components/WaitlistSection';
 import { EarlyAccessBanner } from './components/EarlyAccessBanner';
 import { CinematicFinale } from './components/CinematicFinale';
 import { Footer } from './components/Footer';
+import { BackgroundAudio } from './components/BackgroundAudio';
 import { AdminPage } from './components/admin/AdminPage';
 
 export const App: React.FC = () => {
@@ -77,6 +78,9 @@ export const App: React.FC = () => {
 
       {/* Footer */}
       <Footer />
+
+      {/* Background Audio (Song only, audio background player) */}
+      <BackgroundAudio />
     </div>
   );
 };
