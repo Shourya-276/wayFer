@@ -124,7 +124,7 @@ export const HeroSection: React.FC = () => {
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
                 <span>MATCH → MEET → RIDE</span>
                 <span className="text-neutral-600 font-normal">|</span>
-                <span className="text-neutral-400 font-sans normal-case tracking-normal">The simpler way to share a ride</span>
+                <span className="text-neutral-400 font-sans normal-case tracking-normal">Ride sharing, made simple</span>
               </div>
 
               {/* Primary Headline */}
