@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Volume2, VolumeX, Music } from 'lucide-react';
+import { Volume2, Music } from 'lucide-react';
 
 declare global {
   interface Window {
@@ -10,130 +10,172 @@ declare global {
 
 export const BackgroundAudio: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
   const playerRef = useRef<any>(null);
-  const isInitializedRef = useRef<boolean>(false);
+  const hasSeekedRef = useRef<boolean>(false);
+
+  // Send direct postMessage command to YouTube iframe as fallback
+  const sendIframeCommand = (command: string, args: any[] = []) => {
+    try {
+      if (iframeRef.current && iframeRef.current.contentWindow) {
+        iframeRef.current.contentWindow.postMessage(
+          JSON.stringify({ event: 'command', func: command, args }),
+          '*'
+        );
+      }
+    } catch (e) {
+      console.warn('YouTube postMessage error:', e);
+    }
+  };
+
+  const startPlayback = () => {
+    try {
+      if (playerRef.current && typeof playerRef.current.playVideo === 'function') {
+        playerRef.current.unMute();
+        if (typeof playerRef.current.setVolume === 'function') {
+          playerRef.current.setVolume(100);
+        }
+        if (!hasSeekedRef.current && typeof playerRef.current.seekTo === 'function') {
+          playerRef.current.seekTo(15, true);
+          hasSeekedRef.current = true;
+        }
+        playerRef.current.playVideo();
+      } else {
+        sendIframeCommand('unMute');
+        sendIframeCommand('setVolume', [100]);
+        if (!hasSeekedRef.current) {
+          sendIframeCommand('seekTo', [15, true]);
+          hasSeekedRef.current = true;
+        }
+        sendIframeCommand('playVideo');
+      }
+      setIsPlaying(true);
+    } catch (err) {
+      console.warn('Playback attempt:', err);
+    }
+  };
 
   useEffect(() => {
-    // Function to create/mount the YouTube player
-    const initPlayer = () => {
-      if (isInitializedRef.current || !window.YT || !window.YT.Player) return;
-      isInitializedRef.current = true;
-
-      playerRef.current = new window.YT.Player('yt-bg-audio-player', {
-        videoId: 'pfVODjDBFxU',
-        playerVars: {
-          autoplay: 1,
-          loop: 1,
-          playlist: 'pfVODjDBFxU', // Required for looping in YT player
-          controls: 0,
-          disablekb: 1,
-          fs: 0,
-          rel: 0,
-          modestbranding: 1,
-          playsinline: 1,
-          enablejsapi: 1,
-        },
-        events: {
-          onReady: (event: any) => {
-            // Attempt autoplay immediately
-            try {
-              event.target.playVideo();
-            } catch (err) {
-              console.log('Autoplay deferred until user interaction', err);
-            }
-          },
-          onStateChange: (event: any) => {
-            // 1 = PLAYING, 2 = PAUSED, 0 = ENDED, 3 = BUFFERING
-            if (event.data === 1) {
-              setIsPlaying(true);
-            } else if (event.data === 2 || event.data === 0) {
-              setIsPlaying(false);
-            }
-          },
-        },
-      });
-    };
-
-    // Load YouTube API script if not loaded
-    if (!window.YT) {
-      const existingScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
-      if (!existingScript) {
-        const tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        document.body.appendChild(tag);
-      }
-      window.onYouTubeIframeAPIReady = initPlayer;
-    } else {
-      initPlayer();
-    }
-
-    // Browsers block autoplay of unmuted audio without user gesture.
-    // Listen for the first user click / touch / key anywhere on the site to trigger playback if not already playing.
-    const handleFirstUserInteraction = () => {
-      if (playerRef.current && typeof playerRef.current.playVideo === 'function') {
-        const state = typeof playerRef.current.getPlayerState === 'function' ? playerRef.current.getPlayerState() : -1;
-        if (state !== 1) {
-          playerRef.current.playVideo();
+    // 1. Load YouTube IFrame API script
+    const loadYT = () => {
+      if (window.YT && window.YT.Player) {
+        initPlayer();
+      } else {
+        const existingScript = document.querySelector('script[src="https://www.youtube.com/iframe_api"]');
+        if (!existingScript) {
+          const tag = document.createElement('script');
+          tag.src = 'https://www.youtube.com/iframe_api';
+          document.body.appendChild(tag);
         }
+        window.onYouTubeIframeAPIReady = initPlayer;
       }
-      removeListeners();
     };
 
-    const removeListeners = () => {
-      window.removeEventListener('click', handleFirstUserInteraction);
-      window.removeEventListener('touchstart', handleFirstUserInteraction);
-      window.removeEventListener('keydown', handleFirstUserInteraction);
-      window.removeEventListener('scroll', handleFirstUserInteraction);
+    const initPlayer = () => {
+      if (playerRef.current || !iframeRef.current) return;
+      try {
+        playerRef.current = new window.YT.Player(iframeRef.current, {
+          events: {
+            onReady: (event: any) => {
+              try {
+                event.target.unMute();
+                event.target.setVolume(100);
+                if (!hasSeekedRef.current) {
+                  event.target.seekTo(15, true);
+                  hasSeekedRef.current = true;
+                }
+                event.target.playVideo();
+                if (event.target.getPlayerState?.() === 1) {
+                  setIsPlaying(true);
+                }
+              } catch (e) {
+                console.log('Autoplay pending user interaction', e);
+              }
+            },
+            onStateChange: (event: any) => {
+              // 1 = PLAYING
+              if (event.data === 1) {
+                setIsPlaying(true);
+              } else if (event.data === 0) {
+                // When ended, loop back to 0:15s and keep playing
+                if (typeof event.target.seekTo === 'function') {
+                  event.target.seekTo(15, true);
+                }
+                event.target.playVideo();
+                setIsPlaying(true);
+              } else if (event.data === 2) {
+                // If paused for any reason, auto-resume always
+                event.target.playVideo();
+                setIsPlaying(true);
+              }
+            },
+          },
+        });
+      } catch (e) {
+        console.warn('YT Player init:', e);
+      }
     };
 
-    window.addEventListener('click', handleFirstUserInteraction, { once: true });
-    window.addEventListener('touchstart', handleFirstUserInteraction, { once: true });
-    window.addEventListener('keydown', handleFirstUserInteraction, { once: true });
-    window.addEventListener('scroll', handleFirstUserInteraction, { once: true });
+    loadYT();
+
+    // 2. Modern browsers require 1 physical gesture (click/touch/key) before unmuted sound can play.
+    const handleFirstInteraction = () => {
+      startPlayback();
+      cleanupListeners();
+    };
+
+    const cleanupListeners = () => {
+      window.removeEventListener('click', handleFirstInteraction);
+      window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('keydown', handleFirstInteraction);
+      window.removeEventListener('scroll', handleFirstInteraction);
+    };
+
+    window.addEventListener('click', handleFirstInteraction, { once: true, passive: true });
+    window.addEventListener('touchstart', handleFirstInteraction, { once: true, passive: true });
+    window.addEventListener('keydown', handleFirstInteraction, { once: true, passive: true });
+    window.addEventListener('scroll', handleFirstInteraction, { once: true, passive: true });
+
+    // Ensure audio stays alive when tab visibility changes
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        startPlayback();
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
-      removeListeners();
+      cleanupListeners();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
       if (playerRef.current && typeof playerRef.current.destroy === 'function') {
         playerRef.current.destroy();
         playerRef.current = null;
-        isInitializedRef.current = false;
       }
     };
   }, []);
 
-  const togglePlay = () => {
-    if (!playerRef.current) return;
-    try {
-      if (isPlaying) {
-        playerRef.current.pauseVideo();
-        setIsPlaying(false);
-      } else {
-        playerRef.current.playVideo();
-        setIsPlaying(true);
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  };
-
   return (
     <>
-      {/* Invisible YouTube Player Container for Audio-Only */}
-      <div
-        className="fixed -top-[9999px] -left-[9999px] w-1 h-1 opacity-0 pointer-events-none overflow-hidden"
+      {/*
+        Audio-Only YouTube Embed:
+        Starts at 0:15s, unmuted, looping continuously, zero option to mute/pause.
+      */}
+      <iframe
+        ref={iframeRef}
+        id="wayfer-bg-soundtrack"
+        title="WayFer Background Soundtrack"
+        src="https://www.youtube.com/embed/pfVODjDBFxU?enablejsapi=1&autoplay=1&mute=0&start=15&loop=1&playlist=pfVODjDBFxU&controls=0&playsinline=1&rel=0"
+        allow="autoplay; encrypted-media"
+        tabIndex={-1}
         aria-hidden="true"
-      >
-        <div id="yt-bg-audio-player" />
-      </div>
+        className="fixed bottom-0 right-0 w-48 h-32 opacity-[0.001] pointer-events-none -z-50"
+      />
 
-      {/* Floating Audio Controller Badge */}
-      <div className="fixed bottom-4 right-4 z-40">
-        <button
-          type="button"
-          onClick={togglePlay}
-          className="flex items-center gap-2 px-3 py-2 rounded-full bg-black/80 hover:bg-neutral-900 border border-white/20 text-white shadow-[0_4px_24px_rgba(0,0,0,0.6)] backdrop-blur-xl transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer group"
-          title={isPlaying ? 'Pause Background Soundtrack' : 'Play Background Soundtrack'}
-          aria-label={isPlaying ? 'Pause Background Soundtrack' : 'Play Background Soundtrack'}
+      {/* Floating Soundtrack Indicator (Display-only pill, no mute/pause option) */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <div
+          onClick={startPlayback}
+          className="flex items-center gap-2.5 px-3.5 py-2 rounded-full border border-white/25 bg-black/85 text-white shadow-[0_0_25px_rgba(255,255,255,0.15)] backdrop-blur-xl transition-all duration-300 select-none cursor-default"
         >
           {isPlaying ? (
             <>
@@ -143,21 +185,21 @@ export const BackgroundAudio: React.FC = () => {
                 <span className="w-0.5 h-3/5 bg-white rounded-full animate-bounce [animation-duration:800ms] [animation-delay:150ms]" />
                 <span className="w-0.5 h-4/5 bg-white rounded-full animate-bounce [animation-duration:500ms] [animation-delay:300ms]" />
               </div>
-              <span className="text-[11px] font-mono tracking-tight text-neutral-200 group-hover:text-white font-medium">
-                Soundtrack Playing
+              <span className="text-[11px] font-mono tracking-tight text-neutral-200 font-medium">
+                Satisfya Playing
               </span>
               <Volume2 className="w-3.5 h-3.5 text-white ml-0.5" />
             </>
           ) : (
             <>
-              <Music className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white" />
-              <span className="text-[11px] font-mono tracking-tight text-neutral-300 group-hover:text-white font-medium">
-                Play Soundtrack
+              <Music className="w-3.5 h-3.5 text-white animate-pulse" />
+              <span className="text-[11px] font-mono tracking-tight text-white font-medium">
+                Satisfya (WayFer Theme)
               </span>
-              <VolumeX className="w-3.5 h-3.5 text-neutral-400 group-hover:text-white ml-0.5" />
+              <Volume2 className="w-3.5 h-3.5 text-neutral-300 ml-0.5" />
             </>
           )}
-        </button>
+        </div>
       </div>
     </>
   );
