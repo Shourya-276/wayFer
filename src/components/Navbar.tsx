@@ -16,9 +16,9 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'How It Works', href: '#how-it-works' },
+    { name: 'The Philosophy', href: '#philosophy' },
     { name: 'Why WayFer', href: '#why-wayfer' },
     { name: 'The Story', href: '#the-story' },
-    { name: 'App Preview', href: '#product-showcase' },
     { name: 'Waitlist', href: '#waitlist' },
   ];
 

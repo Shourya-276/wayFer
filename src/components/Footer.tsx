@@ -23,9 +23,9 @@ export const Footer: React.FC = () => {
           <div className="flex flex-wrap gap-8 text-sm font-medium text-neutral-300">
             <a href="#" className="hover:text-white transition-colors">Home</a>
             <a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a>
+            <a href="#philosophy" className="hover:text-white transition-colors">The Philosophy</a>
             <a href="#why-wayfer" className="hover:text-white transition-colors">Why WayFer</a>
             <a href="#the-story" className="hover:text-white transition-colors">The Story</a>
-            <a href="#product-showcase" className="hover:text-white transition-colors">App Preview</a>
             <a href="#waitlist" className="hover:text-white transition-colors">Waitlist</a>
             <a href="#privacy" className="hover:text-white transition-colors">Privacy</a>
             <a href="#terms" className="hover:text-white transition-colors">Terms</a>

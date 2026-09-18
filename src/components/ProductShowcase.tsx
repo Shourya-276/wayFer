@@ -260,9 +260,10 @@ export const ProductShowcase: React.FC = () => {
 
   return (
     <section
-      id="product-showcase"
+      id="how-it-works"
       className="relative py-10 sm:py-20 px-3 sm:px-6 lg:px-8 bg-black border-t border-white/10 overflow-hidden"
     >
+      <div id="product-showcase" className="absolute -top-24 pointer-events-none" />
       {/* Dynamic Ambient Spotlight in Monochrome */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-white/[0.03] blur-[140px] rounded-full pointer-events-none"></div>
 

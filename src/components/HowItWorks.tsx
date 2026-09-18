@@ -33,7 +33,7 @@ export const HowItWorks: React.FC = () => {
   ];
 
   return (
-    <section id="how-it-works" className="relative py-10 sm:py-20 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
+    <section id="philosophy" className="relative py-10 sm:py-20 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden">
       {/* Visual Header */}
       <div className="max-w-4xl mx-auto text-center mb-6 sm:mb-12 relative z-10">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glow-badge text-white font-mono text-xs uppercase tracking-widest font-bold mb-4">
