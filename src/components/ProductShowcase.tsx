@@ -17,6 +17,8 @@ import {
   Flag,
   Play,
   Pause,
+  User,
+  Car,
 } from 'lucide-react';
 
 export const ProductShowcase: React.FC = () => {
@@ -27,7 +29,7 @@ export const ProductShowcase: React.FC = () => {
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [mouseTilt, setMouseTilt] = useState({ x: 0, y: 0 });
 
-  // 11 Real Scanned Product Screenshots & Authentic Journey Steps in Monochrome
+  // 13 Real Scanned Product Screenshots & Authentic Journey Steps in Monochrome
   const screens = [
     {
       id: 1,
@@ -96,6 +98,45 @@ export const ProductShowcase: React.FC = () => {
     },
     {
       id: 6,
+      screenImageId: 6,
+      tabTitle: 'Co-Rider',
+      title: 'Co-rider trip details.',
+      subtitle: 'Complete route transparency before connecting',
+      description:
+        "Inspect your matched co-rider's route. Review pickup and dropoff points, scheduled time, and send a message request in one tap.",
+      icon: <ShieldCheck className="w-3.5 h-3.5 text-neutral-300" />,
+      tag: '06 • Co-Rider Profile',
+      featureA: 'Route Transparency: Exact pickup & dropoff addresses.',
+      featureB: 'Direct Request: Send message request without sharing numbers.',
+    },
+    {
+      id: 7,
+      screenImageId: 13,
+      tabTitle: 'Profile',
+      title: 'Rider & Host profile.',
+      subtitle: 'Dual mode flexibility for every journey',
+      description:
+        'Access your profile drawer anytime. Seamlessly toggle between Rider and Host modes, manage security settings, and customize your commuting preferences.',
+      icon: <User className="w-3.5 h-3.5 text-white" />,
+      tag: '07 • User Profile & Modes',
+      featureA: 'Dual Modes: Seamlessly switch between Rider and Host.',
+      featureB: 'Full Control: Manage account settings and privacy preferences.',
+    },
+    {
+      id: 8,
+      screenImageId: 14,
+      tabTitle: 'Radar',
+      title: 'Real-time vehicle radar.',
+      subtitle: 'Live commuter car tracked on your route',
+      description:
+        'Split the fare and save on fuel. Active ride radar highlights live co-rider vehicles moving along your corridor, ready to share the commute.',
+      icon: <Car className="w-3.5 h-3.5 text-white" />,
+      tag: '08 • Live Vehicle Radar',
+      featureA: 'Live Vehicle Pin: Real-time co-rider vehicle waypoint on map.',
+      featureB: 'Fuel Splitting: Cut daily commute expenses in half.',
+    },
+    {
+      id: 9,
       screenImageId: 12,
       tabTitle: 'Alert',
       title: 'Instant push notifications.',
@@ -103,25 +144,12 @@ export const ProductShowcase: React.FC = () => {
       description:
         'Receive instant system notifications, deep-linking straight into requests.',
       icon: <Bell className="w-3.5 h-3.5 text-white" />,
-      tag: '06 • Push Notifications',
+      tag: '09 • Push Notifications',
       featureA: 'Instant Push: Delivered straight to notification shade.',
       featureB: 'One-Tap Action: Deep-link straight to chat & accept.',
     },
     {
-      id: 7,
-      screenImageId: 6,
-      tabTitle: 'Co-Rider',
-      title: 'Co-rider trip details.',
-      subtitle: 'Complete route transparency before connecting',
-      description:
-        "Inspect your matched co-rider's route. Send a message request in one tap.",
-      icon: <ShieldCheck className="w-3.5 h-3.5 text-neutral-300" />,
-      tag: '07 • Co-Rider Profile',
-      featureA: 'Route Transparency: Exact pickup & dropoff addresses.',
-      featureB: 'Direct Request: Send message request without sharing numbers.',
-    },
-    {
-      id: 8,
+      id: 10,
       screenImageId: 7,
       tabTitle: 'Requests',
       title: 'Message requests hub.',
@@ -129,12 +157,12 @@ export const ProductShowcase: React.FC = () => {
       description:
         'A red alert badge notifies you of incoming requests to review and coordinate departures seamlessly.',
       icon: <MessageSquare className="w-3.5 h-3.5 text-white" />,
-      tag: '08 • Message Requests',
+      tag: '10 • Message Requests',
       featureA: 'Alert Badges: Red notification dot on Requests tab.',
       featureB: 'Dual Tabs: Toggle between Received & Sent requests.',
     },
     {
-      id: 9,
+      id: 11,
       screenImageId: 8,
       tabTitle: 'Chat',
       title: 'Coordinate directly in chat.',
@@ -142,12 +170,12 @@ export const ProductShowcase: React.FC = () => {
       description:
         'Private in-app chat lets matched riders coordinate and agree on exact pickup points without friction.',
       icon: <Zap className="w-3.5 h-3.5 text-white fill-white" />,
-      tag: '09 • In-App Match Chat',
+      tag: '11 • In-App Match Chat',
       featureA: 'Private Chat: Zero personal phone number exposure.',
       featureB: 'Rendezvous Sync: Coordinate meeting spot before hailing.',
     },
     {
-      id: 10,
+      id: 12,
       screenImageId: 9,
       tabTitle: 'Accepted',
       title: 'Trip accepted & underway.',
@@ -155,12 +183,12 @@ export const ProductShowcase: React.FC = () => {
       description:
         'Your co-rider\'s request updates to "Accepted". The shared fare arrangement is discussed in the chat, with prominent "End Trip" control at your fingertips.',
       icon: <Flag className="w-3.5 h-3.5 text-neutral-300" />,
-      tag: '10 • Accepted Match',
+      tag: '12 • Accepted Match',
       featureA: 'Status Sync: Real-time update to Accepted badge.',
       featureB: 'Trip Controls: Red End Trip button ready for destination.',
     },
     {
-      id: 11,
+      id: 13,
       screenImageId: 10,
       tabTitle: 'Completed',
       title: 'The trip has ended.',
@@ -168,7 +196,7 @@ export const ProductShowcase: React.FC = () => {
       description:
         'Destination reached safely! The trip has ended. Thank you for riding with us!',
       icon: <CheckCircle2 className="w-3.5 h-3.5 text-white" />,
-      tag: '11 • Trip Completed',
+      tag: '13 • Trip Completed',
       featureA: 'Chat Auto-Deletion: In-app chats are permanently removed and deleted for both users once the trip ends successfully.',
       featureB: 'Total Post-Trip Privacy: Zero lingering messages or contact traces remain on either device.',
     },
@@ -281,8 +309,8 @@ export const ProductShowcase: React.FC = () => {
           </div>
         </div>
 
-        {/* 2. Slim 11-Step Timeline Scrubber in Monochrome */}
-        <div className="grid grid-cols-6 sm:grid-cols-11 gap-1 shrink-0">
+        {/* 2. Slim 13-Step Timeline Scrubber in Monochrome */}
+        <div className="grid grid-cols-4 sm:grid-cols-7 lg:grid-cols-13 gap-1 shrink-0">
           {screens.map((s) => {
             const isActive = s.id === activeScreen;
             const isPast = s.id < activeScreen;

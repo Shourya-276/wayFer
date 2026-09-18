@@ -40,6 +40,9 @@ export default {
         'float-reverse': 'floatReverse 7s ease-in-out infinite',
         'shimmer': 'shimmer 2.5s linear infinite',
       },
+      gridTemplateColumns: {
+        '13': 'repeat(13, minmax(0, 1fr))',
+      },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
