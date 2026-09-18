@@ -155,10 +155,10 @@ export const ProductShowcase: React.FC = () => {
       title: "Ride host itinerary & fare.",
       subtitle: 'Transparent trip details & upfront micro-fare',
       description:
-        "Review your ride host's scheduled route from Hosa Rd to RMZ Ecoworld Bellandur. Lock in your seat for just ≈ ₹39 instead of paying 800 on a solo cab.",
+        "Review your ride host's scheduled route, verified vehicle, and departure window. Lock in your seat for an upfront micro-fare instead of paying 800 on a solo cab.",
       icon: <Car className="w-3.5 h-3.5 text-neutral-300" />,
       tag: '10 • Ride Host Itinerary',
-      featureA: 'Micro Fares: Commute for as low as ₹39 per seat.',
+      featureA: 'Micro Fares: Commute for a fraction of regular cab prices.',
       featureB: 'Direct Connect: Send message request directly to host.',
     },
     {
