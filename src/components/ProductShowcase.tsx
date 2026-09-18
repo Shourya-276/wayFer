@@ -29,7 +29,7 @@ export const ProductShowcase: React.FC = () => {
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [mouseTilt, setMouseTilt] = useState({ x: 0, y: 0 });
 
-  // 13 Real Scanned Product Screenshots & Authentic Journey Steps in Monochrome
+  // 14 Real Scanned Product Screenshots & Authentic Journey Steps in Monochrome
   const screens = [
     {
       id: 1,
@@ -85,6 +85,19 @@ export const ProductShowcase: React.FC = () => {
     },
     {
       id: 5,
+      screenImageId: 12,
+      tabTitle: 'Alert',
+      title: 'Instant push notifications.',
+      subtitle: 'Real-time alert system on mobile',
+      description:
+        'Once your ride is scheduled, receive instant system notifications the moment a matching commuter is detected along your corridor.',
+      icon: <Bell className="w-3.5 h-3.5 text-white" />,
+      tag: '05 • Push Notifications',
+      featureA: 'Instant Push: Delivered straight to notification shade.',
+      featureB: 'One-Tap Action: Deep-link straight to active radar & matches.',
+    },
+    {
+      id: 6,
       screenImageId: 5,
       tabTitle: 'Active',
       title: 'Matches around you.',
@@ -92,12 +105,12 @@ export const ProductShowcase: React.FC = () => {
       description:
         "Active ride status shows matches around you with a marker showing the co-rider's initial appearing on the map. Review their path before booking a costly solo cab.",
       icon: <Users className="w-3.5 h-3.5 text-white" />,
-      tag: '05 • Active Ride Radar',
+      tag: '06 • Active Ride Radar',
       featureA: 'Waypoint Radar: Co-rider waypoints flagged along active riding routes.',
       featureB: 'Live Controls: Instant request or cancel option.',
     },
     {
-      id: 6,
+      id: 7,
       screenImageId: 6,
       tabTitle: 'Co-Rider',
       title: 'Co-rider trip details.',
@@ -105,12 +118,12 @@ export const ProductShowcase: React.FC = () => {
       description:
         "Inspect your matched co-rider's route. Review pickup and dropoff points, scheduled time, and send a message request in one tap.",
       icon: <ShieldCheck className="w-3.5 h-3.5 text-neutral-300" />,
-      tag: '06 • Co-Rider Profile',
+      tag: '07 • Co-Rider Profile',
       featureA: 'Route Transparency: Exact pickup & dropoff addresses.',
       featureB: 'Direct Request: Send message request without sharing numbers.',
     },
     {
-      id: 7,
+      id: 8,
       screenImageId: 13,
       tabTitle: 'Profile',
       title: 'Rider & Host profile.',
@@ -118,12 +131,12 @@ export const ProductShowcase: React.FC = () => {
       description:
         'Access your profile drawer anytime. Seamlessly toggle between Rider and Host modes, manage security settings, and customize your commuting preferences.',
       icon: <User className="w-3.5 h-3.5 text-white" />,
-      tag: '07 • User Profile & Modes',
+      tag: '08 • User Profile & Modes',
       featureA: 'Dual Modes: Seamlessly switch between Rider and Host.',
       featureB: 'Full Control: Manage account settings and privacy preferences.',
     },
     {
-      id: 8,
+      id: 9,
       screenImageId: 14,
       tabTitle: 'Radar',
       title: 'Real-time vehicle radar.',
@@ -131,25 +144,25 @@ export const ProductShowcase: React.FC = () => {
       description:
         'Split the fare and save on fuel. Active ride radar highlights live co-rider vehicles moving along your corridor, ready to share the commute.',
       icon: <Car className="w-3.5 h-3.5 text-white" />,
-      tag: '08 • Live Vehicle Radar',
+      tag: '09 • Live Vehicle Radar',
       featureA: 'Live Vehicle Pin: Real-time co-rider vehicle waypoint on map.',
       featureB: 'Fuel Splitting: Cut daily commute expenses in half.',
     },
     {
-      id: 9,
-      screenImageId: 12,
-      tabTitle: 'Alert',
-      title: 'Instant push notifications.',
-      subtitle: 'Real-time alert system on mobile',
+      id: 10,
+      screenImageId: 15,
+      tabTitle: 'Host Trip',
+      title: "Ride host itinerary & fare.",
+      subtitle: 'Transparent trip details & upfront micro-fare',
       description:
-        'Receive instant system notifications, deep-linking straight into requests.',
-      icon: <Bell className="w-3.5 h-3.5 text-white" />,
-      tag: '09 • Push Notifications',
-      featureA: 'Instant Push: Delivered straight to notification shade.',
-      featureB: 'One-Tap Action: Deep-link straight to chat & accept.',
+        "Review your ride host's scheduled route from Hosa Rd to RMZ Ecoworld Bellandur. Lock in your seat for just ≈ ₹39 instead of paying 800 on a solo cab.",
+      icon: <Car className="w-3.5 h-3.5 text-neutral-300" />,
+      tag: '10 • Ride Host Itinerary',
+      featureA: 'Micro Fares: Commute for as low as ₹39 per seat.',
+      featureB: 'Direct Connect: Send message request directly to host.',
     },
     {
-      id: 10,
+      id: 11,
       screenImageId: 7,
       tabTitle: 'Requests',
       title: 'Message requests hub.',
@@ -157,12 +170,12 @@ export const ProductShowcase: React.FC = () => {
       description:
         'A red alert badge notifies you of incoming requests to review and coordinate departures seamlessly.',
       icon: <MessageSquare className="w-3.5 h-3.5 text-white" />,
-      tag: '10 • Message Requests',
+      tag: '11 • Message Requests',
       featureA: 'Alert Badges: Red notification dot on Requests tab.',
       featureB: 'Dual Tabs: Toggle between Received & Sent requests.',
     },
     {
-      id: 11,
+      id: 12,
       screenImageId: 8,
       tabTitle: 'Chat',
       title: 'Coordinate directly in chat.',
@@ -170,12 +183,12 @@ export const ProductShowcase: React.FC = () => {
       description:
         'Private in-app chat lets matched riders coordinate and agree on exact pickup points without friction.',
       icon: <Zap className="w-3.5 h-3.5 text-white fill-white" />,
-      tag: '11 • In-App Match Chat',
+      tag: '12 • In-App Match Chat',
       featureA: 'Private Chat: Zero personal phone number exposure.',
       featureB: 'Rendezvous Sync: Coordinate meeting spot before hailing.',
     },
     {
-      id: 12,
+      id: 13,
       screenImageId: 9,
       tabTitle: 'Accepted',
       title: 'Trip accepted & underway.',
@@ -183,12 +196,12 @@ export const ProductShowcase: React.FC = () => {
       description:
         'Your co-rider\'s request updates to "Accepted". The shared fare arrangement is discussed in the chat, with prominent "End Trip" control at your fingertips.',
       icon: <Flag className="w-3.5 h-3.5 text-neutral-300" />,
-      tag: '12 • Accepted Match',
+      tag: '13 • Accepted Match',
       featureA: 'Status Sync: Real-time update to Accepted badge.',
       featureB: 'Trip Controls: Red End Trip button ready for destination.',
     },
     {
-      id: 13,
+      id: 14,
       screenImageId: 10,
       tabTitle: 'Completed',
       title: 'The trip has ended.',
@@ -196,7 +209,7 @@ export const ProductShowcase: React.FC = () => {
       description:
         'Destination reached safely! The trip has ended. Thank you for riding with us!',
       icon: <CheckCircle2 className="w-3.5 h-3.5 text-white" />,
-      tag: '13 • Trip Completed',
+      tag: '14 • Trip Completed',
       featureA: 'Chat Auto-Deletion: In-app chats are permanently removed and deleted for both users once the trip ends successfully.',
       featureB: 'Total Post-Trip Privacy: Zero lingering messages or contact traces remain on either device.',
     },
@@ -309,8 +322,8 @@ export const ProductShowcase: React.FC = () => {
           </div>
         </div>
 
-        {/* 2. Slim 13-Step Timeline Scrubber in Monochrome */}
-        <div className="grid grid-cols-4 sm:grid-cols-7 lg:grid-cols-13 gap-1 shrink-0">
+        {/* 2. Slim 14-Step Timeline Scrubber in Monochrome */}
+        <div className="grid grid-cols-4 sm:grid-cols-7 lg:grid-cols-14 gap-1 shrink-0">
           {screens.map((s) => {
             const isActive = s.id === activeScreen;
             const isPast = s.id < activeScreen;
