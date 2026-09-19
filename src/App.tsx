@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { HeroSection } from './components/HeroSection';
-import { OpeningStory } from './components/OpeningStory';
+import { WhatWayferDoes } from './components/WhatWayferDoes';
 import { SrmOriginStory } from './components/SrmOriginStory';
 import { CoreInsight } from './components/CoreInsight';
 import { RouteCorridors } from './components/RouteCorridors';
-import { HowItWorks } from './components/HowItWorks';
 import { ProductShowcase } from './components/ProductShowcase';
 import { WaitlistSection } from './components/WaitlistSection';
 import { EarlyAccessBanner } from './components/EarlyAccessBanner';
@@ -42,36 +41,27 @@ export const App: React.FC = () => {
       {/* Navigation Header */}
       <Navbar />
 
-      {/* Main Content Sections in Cinematic Storyboard Order */}
+      {/* Main Content Sections in Specified Storyboard Order */}
       <main>
         {/* 1. Hero Section */}
         <HeroSection />
 
-        {/* 2. The Opening Story */}
-        <OpeningStory />
+        {/* 2. What WayFer Does (Two Cards) */}
+        <WhatWayferDoes />
 
         {/* 3. The Origin Story — Splitting The Ride */}
         <SrmOriginStory />
 
-        {/* 4. The Core Insight */}
+        {/* 4. People & Routes / Corridors */}
         <CoreInsight />
-
-        {/* 5. Why WayFer Exists (Route Corridors) */}
         <RouteCorridors />
 
-        {/* 6. How WayFer Works (MATCH → MEET → RIDE) */}
-        <HowItWorks />
-
-        {/* 7. Real Product Showcase (11-Screen Experience) */}
+        {/* 5. App Screenshots & Explanations (The Walkthrough) */}
         <ProductShowcase />
 
-        {/* 8. Primary Waitlist & Route-trail Success */}
+        {/* 6. Expansion + Closing / Waitlist */}
         <WaitlistSection />
-
-        {/* 14. Early Access */}
         <EarlyAccessBanner />
-
-        {/* 15. Cinematic Finale */}
         <CinematicFinale />
       </main>
 

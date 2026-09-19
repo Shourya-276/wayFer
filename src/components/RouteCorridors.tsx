@@ -4,20 +4,20 @@ import { ArrowRight, GraduationCap, Briefcase, Train, Plane } from 'lucide-react
 export const RouteCorridors: React.FC = () => {
   const corridors = [
     {
-      title: 'COLLEGE → AIRPORT',
-      origin: 'Campus / Hostel',
-      destination: 'Airport Terminal',
-      icon: <Plane className="w-5 h-5 text-white" />,
-      tag: 'Semester Breaks & Holidays',
-      description: 'End-of-term flights, weekend trips, and festive rushes along airport highways.',
-    },
-    {
       title: 'HOME → OFFICE',
       origin: 'Residential Suburbs',
       destination: 'Tech Parks',
       icon: <Briefcase className="w-5 h-5 text-white" />,
       tag: 'Daily Rush Hours',
       description: 'Avoid solo cab surges by matching with colleagues and neighbours on identical commutes.',
+    },
+    {
+      title: 'COLLEGE → AIRPORT',
+      origin: 'Campus / Hostel',
+      destination: 'Airport Terminal',
+      icon: <Plane className="w-5 h-5 text-white" />,
+      tag: 'Semester Breaks & Holidays',
+      description: 'End-of-term flights, weekend trips, and festive rushes along airport highways.',
     },
     {
       title: 'HOSTEL → CAMPUS',

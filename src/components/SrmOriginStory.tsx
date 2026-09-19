@@ -71,9 +71,14 @@ export const SrmOriginStory: React.FC = () => {
               <span className="text-neutral-400 font-normal">Splitting rides to cut down costs for everyone.</span>
             </div>
 
-            <p className="text-sm font-mono text-white uppercase tracking-wider font-semibold">
-              → That's where WayFer began.
-            </p>
+            <div className="space-y-3 pt-2">
+              <p className="text-sm font-mono text-white uppercase tracking-wider font-semibold">
+                → That's where WayFer began.
+              </p>
+              <p className="text-base sm:text-lg text-neutral-300 font-normal leading-relaxed">
+                What started with airport runs became something bigger — the same problem happens every single day, on every commute to work, college, and back.
+              </p>
+            </div>
           </div>
 
           {/* Right Visual Column: Campus to Airport Interactive Corridor */}

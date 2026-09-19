@@ -22,10 +22,10 @@ export const Footer: React.FC = () => {
           {/* Navigation Links */}
           <div className="flex flex-wrap gap-8 text-sm font-medium text-neutral-300">
             <a href="#" className="hover:text-white transition-colors">Home</a>
-            <a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a>
-            <a href="#philosophy" className="hover:text-white transition-colors">The Philosophy</a>
-            <a href="#why-wayfer" className="hover:text-white transition-colors">Why WayFer</a>
+            <a href="#what-wayfer-does" className="hover:text-white transition-colors">What We Do</a>
             <a href="#the-story" className="hover:text-white transition-colors">The Story</a>
+            <a href="#why-wayfer" className="hover:text-white transition-colors">Corridors</a>
+            <a href="#how-it-works" className="hover:text-white transition-colors">Walkthrough</a>
             <a href="#waitlist" className="hover:text-white transition-colors">Waitlist</a>
             <a href="#privacy" className="hover:text-white transition-colors">Privacy</a>
             <a href="#terms" className="hover:text-white transition-colors">Terms</a>

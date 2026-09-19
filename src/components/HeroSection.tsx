@@ -136,7 +136,7 @@ export const HeroSection: React.FC = () => {
 
               {/* Supporting Text */}
               <p className="text-sm sm:text-base lg:text-lg text-neutral-300 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed">
-                WayFer connects verified travellers on identical routes—so you can <strong className="text-white font-semibold">match</strong>, <strong className="text-white font-semibold">split the fare</strong>, and <strong className="text-white font-semibold">ride together</strong> without paying full price alone.
+                WayFer connects verified people travelling the same route — whether it's a daily commute or an airport run. <strong className="text-white font-semibold">Match</strong>, <strong className="text-white font-semibold">split the fare</strong>, and <strong className="text-white font-semibold">ride together</strong> instead of paying full price alone.
               </p>
 
               {/* CTAs - Prominently positioned above the fold */}
@@ -150,7 +150,7 @@ export const HeroSection: React.FC = () => {
                 </a>
 
                 <a
-                  href="#how-it-works"
+                  href="#what-wayfer-does"
                   className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white border border-white/15 font-semibold text-xs sm:text-sm transition-all duration-300 hover:border-white/40 flex items-center justify-center gap-2"
                 >
                   See How It Works ↓
@@ -161,11 +161,11 @@ export const HeroSection: React.FC = () => {
               <div className="pt-2 flex items-center justify-center lg:justify-start gap-5 text-[11px] text-neutral-400">
                 <div className="flex items-center gap-1.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-white"></div>
-                  <span>Campuses & Tech Parks</span>
+                  <span>Daily Commutes & Airport Runs</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <div className="w-1.5 h-1.5 rounded-full bg-neutral-400"></div>
-                  <span>Real Overlapping Routes</span>
+                  <span>Verified Riders</span>
                 </div>
               </div>
             </div>

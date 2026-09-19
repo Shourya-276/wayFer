@@ -15,10 +15,10 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'The Philosophy', href: '#philosophy' },
-    { name: 'Why WayFer', href: '#why-wayfer' },
+    { name: 'What We Do', href: '#what-wayfer-does' },
     { name: 'The Story', href: '#the-story' },
+    { name: 'Corridors', href: '#why-wayfer' },
+    { name: 'Walkthrough', href: '#how-it-works' },
     { name: 'Waitlist', href: '#waitlist' },
   ];
 
